@@ -4,5 +4,8 @@
 ## Why the Name?
 A tribute to my dearly beloved, the girl I love. "Çilekli Muz" is her alias in many platforms, the reason is unbeknownst to me.
 
+## Why does the URI differ?
+Ease of access. "YQ" is also a tribute to her.
+
 ## More Details?
 TBA.
