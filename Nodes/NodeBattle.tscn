@@ -1,0 +1,187 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/mainTheme.theme" type="Theme" id=1]
+
+[node name="NodeBattle" type="GraphNode"]
+margin_right = 277.0
+margin_bottom = 345.0
+theme = ExtResource( 1 )
+custom_constants/separation = 3
+title = "Event: BATTLE"
+show_close = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 0.380392, 0.545098, 0.8, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 0.172791, 0.208243, 0.296875, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
+slot/6/left_enabled = false
+slot/6/left_type = 10
+slot/6/left_color = Color( 0.380392, 0.545098, 0.8, 1 )
+slot/6/right_enabled = false
+slot/6/right_type = 0
+slot/6/right_color = Color( 1, 1, 1, 1 )
+slot/7/left_enabled = true
+slot/7/left_type = 10
+slot/7/left_color = Color( 0.380392, 0.545098, 0.8, 1 )
+slot/7/right_enabled = false
+slot/7/right_type = 0
+slot/7/right_color = Color( 1, 1, 1, 1 )
+slot/8/left_enabled = true
+slot/8/left_type = 22
+slot/8/left_color = Color( 0.380392, 0.545098, 0.8, 1 )
+slot/8/right_enabled = false
+slot/8/right_type = 0
+slot/8/right_color = Color( 1, 1, 1, 1 )
+slot/9/left_enabled = false
+slot/9/left_type = 0
+slot/9/left_color = Color( 1, 1, 1, 1 )
+slot/9/right_enabled = false
+slot/9/right_type = 0
+slot/9/right_color = Color( 1, 1, 1, 1 )
+slot/10/left_enabled = true
+slot/10/left_type = 0
+slot/10/left_color = Color( 0.380392, 0.545098, 0.8, 1 )
+slot/10/right_enabled = false
+slot/10/right_type = 0
+slot/10/right_color = Color( 0.380392, 0.545098, 0.8, 1 )
+slot/11/left_enabled = false
+slot/11/left_type = 0
+slot/11/left_color = Color( 1, 1, 1, 1 )
+slot/11/right_enabled = false
+slot/11/right_type = 0
+slot/11/right_color = Color( 1, 1, 1, 1 )
+slot/12/left_enabled = false
+slot/12/left_type = 0
+slot/12/left_color = Color( 1, 1, 1, 1 )
+slot/12/right_enabled = true
+slot/12/right_type = 0
+slot/12/right_color = Color( 0.380392, 0.545098, 0.8, 1 )
+
+[node name="GoIN" type="Label" parent="."]
+margin_left = 28.0
+margin_top = 24.0
+margin_right = 249.0
+margin_bottom = 49.0
+text = "Previous Node"
+align = 1
+
+[node name="_sepr1" type="HSeparator" parent="."]
+margin_left = 28.0
+margin_top = 52.0
+margin_right = 249.0
+margin_bottom = 62.0
+custom_constants/separation = 10
+
+[node name="_labelTitle" type="Label" parent="."]
+margin_left = 28.0
+margin_top = 65.0
+margin_right = 249.0
+margin_bottom = 90.0
+text = "Event Title ID:"
+align = 1
+
+[node name="TitleID" type="TextEdit" parent="."]
+margin_left = 28.0
+margin_top = 93.0
+margin_right = 249.0
+margin_bottom = 124.0
+rect_min_size = Vector2( 0, 31 )
+
+[node name="_labelTitle2" type="Label" parent="."]
+margin_left = 28.0
+margin_top = 127.0
+margin_right = 249.0
+margin_bottom = 152.0
+text = "Event Lore ID:"
+align = 1
+
+[node name="LoreID" type="TextEdit" parent="."]
+margin_left = 28.0
+margin_top = 155.0
+margin_right = 249.0
+margin_bottom = 186.0
+rect_min_size = Vector2( 0, 31 )
+
+[node name="_sepr2" type="HSeparator" parent="."]
+margin_left = 28.0
+margin_top = 189.0
+margin_right = 249.0
+margin_bottom = 199.0
+custom_constants/separation = 10
+
+[node name="StageIN" type="Label" parent="."]
+margin_left = 28.0
+margin_top = 202.0
+margin_right = 249.0
+margin_bottom = 227.0
+text = "Stage Information"
+align = 1
+
+[node name="LocationIN" type="Label" parent="."]
+margin_left = 28.0
+margin_top = 230.0
+margin_right = 249.0
+margin_bottom = 255.0
+text = "Location Information"
+align = 1
+
+[node name="_sepr3" type="HSeparator" parent="."]
+margin_left = 28.0
+margin_top = 258.0
+margin_right = 249.0
+margin_bottom = 268.0
+custom_constants/separation = 10
+
+[node name="OpponentIN" type="Label" parent="."]
+margin_left = 28.0
+margin_top = 271.0
+margin_right = 249.0
+margin_bottom = 296.0
+text = "Opponent Information"
+align = 1
+
+[node name="_sepr4" type="HSeparator" parent="."]
+margin_left = 28.0
+margin_top = 299.0
+margin_right = 249.0
+margin_bottom = 309.0
+custom_constants/separation = 10
+
+[node name="GoOUT" type="Label" parent="."]
+margin_left = 28.0
+margin_top = 312.0
+margin_right = 249.0
+margin_bottom = 337.0
+text = "Next Node"
+align = 1

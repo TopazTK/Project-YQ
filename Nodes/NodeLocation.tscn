@@ -1,0 +1,65 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/mainTheme.theme" type="Theme" id=1]
+
+[node name="NodeLocation" type="GraphNode"]
+margin_right = 277.0
+margin_bottom = 143.0
+theme = ExtResource( 1 )
+custom_constants/separation = 6
+title = "Info: LOCATION"
+show_close = true
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color( 1, 1, 1, 1 )
+slot/3/right_enabled = true
+slot/3/right_type = 22
+slot/3/right_color = Color( 0.380392, 0.545098, 0.8, 1 )
+
+[node name="CurrIN" type="Button" parent="."]
+margin_left = 28.0
+margin_top = 24.0
+margin_right = 249.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 0, 32 )
+text = "From: [0, 0]"
+
+[node name="DestIN" type="Button" parent="."]
+margin_left = 28.0
+margin_top = 62.0
+margin_right = 249.0
+margin_bottom = 94.0
+rect_min_size = Vector2( 0, 32 )
+text = "To: [0, 0]"
+
+[node name="_sepr" type="HSeparator" parent="."]
+margin_left = 28.0
+margin_top = 100.0
+margin_right = 249.0
+margin_bottom = 104.0
+
+[node name="GoOUT" type="Label" parent="."]
+margin_left = 28.0
+margin_top = 110.0
+margin_right = 249.0
+margin_bottom = 135.0
+text = "Connector"
+align = 1

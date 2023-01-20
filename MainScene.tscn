@@ -1,0 +1,149 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/mainTheme.theme" type="Theme" id=1]
+[ext_resource path="res://Scripts/MainEditor.cs" type="Script" id=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.112305, 0.131557, 0.179688, 1 )
+
+[node name="Menu" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+margin_left = 5.0
+margin_top = 3.0
+margin_bottom = 27.0
+custom_constants/separation = 12
+
+[node name="MenuFile" type="MenuButton" parent="Menu"]
+margin_right = 36.0
+margin_bottom = 25.0
+theme = ExtResource( 1 )
+text = "File"
+
+[node name="MenuEdit" type="MenuButton" parent="Menu"]
+margin_left = 48.0
+margin_right = 85.0
+margin_bottom = 25.0
+focus_mode = 2
+theme = ExtResource( 1 )
+text = "Edit"
+
+[node name="MenuNodes" type="MenuButton" parent="Menu"]
+margin_left = 97.0
+margin_right = 150.0
+margin_bottom = 25.0
+focus_mode = 2
+theme = ExtResource( 1 )
+text = "Nodes"
+items = [ "Event Node: BATTLE", null, 0, false, false, 0, 0, null, "", false, "Info Node: LOCATION", null, 0, false, false, 1, 0, null, "", false, "Info Node: STAGE", null, 0, false, false, 2, 0, null, "", false, "Event Node: CHOICE", null, 0, false, false, 3, 0, null, "", false ]
+
+[node name="MenuAbout" type="Button" parent="Menu"]
+margin_left = 162.0
+margin_right = 212.0
+margin_bottom = 25.0
+theme = ExtResource( 1 )
+text = "About"
+flat = true
+
+[node name="Editor" type="GraphEdit" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 27.0
+theme = ExtResource( 1 )
+right_disconnects = true
+show_zoom_label = true
+minimap_enabled = false
+script = ExtResource( 2 )
+
+[node name="NodeBegin" type="GraphNode" parent="Editor"]
+margin_left = 75.0
+margin_top = 75.0
+margin_right = 261.0
+margin_bottom = 129.0
+mouse_filter = 1
+title = "SCRIPT: Begin Block"
+offset = Vector2( 75, 75 )
+overlay = 1
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 0.380392, 0.545098, 0.8, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 0.380392, 0.545098, 0.8, 1 )
+
+[node name="BeginOUT" type="Label" parent="Editor/NodeBegin"]
+margin_left = 28.0
+margin_top = 24.0
+margin_right = 158.0
+margin_bottom = 49.0
+text = "Node Input"
+
+[node name="NodeEnd" type="GraphNode" parent="Editor"]
+margin_left = 75.0
+margin_top = 150.0
+margin_right = 248.0
+margin_bottom = 204.0
+mouse_filter = 1
+title = "SCRIPT: End Block"
+offset = Vector2( 75, 150 )
+overlay = 2
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 0.380392, 0.545098, 0.8, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+
+[node name="EndIN" type="Label" parent="Editor/NodeEnd"]
+margin_left = 28.0
+margin_top = 24.0
+margin_right = 145.0
+margin_bottom = 49.0
+text = "Node Input"
+
+[node name="DialogAbout" type="WindowDialog" parent="."]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -207.5
+margin_top = -101.5
+margin_right = 207.5
+margin_bottom = 101.5
+theme = ExtResource( 1 )
+window_title = "== Project: Çilekli Muz =="
+
+[node name="LabelAbout" type="RichTextLabel" parent="DialogAbout"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+bbcode_enabled = true
+bbcode_text = "
+[center]A full-fledged Tales of Souls Flowchart Editor for Soulcalibur III, created by TopazTK.
+
+The namesake of this project is my dearly beloved, [b]Armağan Yalçın[/b], without whom I would never find the energy, the drive, nor the courage to do anything.
+
+Armağan, I love you. Thank you.
+[/center]
+
+"
+text = "
+A full-fledged Tales of Souls Flowchart Editor for Soulcalibur III, created by TopazTK.
+
+The namesake of this project is my dearly beloved, Armağan Yalçın, without whom I would never find the energy, the drive, nor the courage to do anything.
+
+Armağan, I love you. Thank you.
+
+
+"
+scroll_active = false
+
+[connection signal="pressed" from="Menu/MenuAbout" to="Editor" method="AboutEvent"]
+[connection signal="connection_request" from="Editor" to="Editor" method="ConnectionRequest"]
+[connection signal="connection_request" from="Editor" to="Editor" method="connectionRequest"]
+[connection signal="disconnection_request" from="Editor" to="Editor" method="DisconnectionRequest"]
