@@ -4,7 +4,7 @@
 
 [node name="NodeStage" type="GraphNode"]
 margin_right = 277.0
-margin_bottom = 193.0
+margin_bottom = 269.0
 theme = ExtResource( 1 )
 custom_constants/separation = 3
 title = "Info: STAGE"
@@ -42,31 +42,53 @@ slot/4/right_color = Color( 1, 1, 1, 1 )
 slot/5/left_enabled = false
 slot/5/left_type = 0
 slot/5/left_color = Color( 0.172791, 0.208243, 0.296875, 1 )
-slot/5/right_enabled = true
+slot/5/right_enabled = false
 slot/5/right_type = 10
 slot/5/right_color = Color( 0.380392, 0.545098, 0.8, 1 )
+slot/6/left_enabled = false
+slot/6/left_type = 0
+slot/6/left_color = Color( 1, 1, 1, 1 )
+slot/6/right_enabled = false
+slot/6/right_type = 0
+slot/6/right_color = Color( 1, 1, 1, 1 )
+slot/7/left_enabled = false
+slot/7/left_type = 0
+slot/7/left_color = Color( 1, 1, 1, 1 )
+slot/7/right_enabled = false
+slot/7/right_type = 0
+slot/7/right_color = Color( 1, 1, 1, 1 )
+slot/8/left_enabled = false
+slot/8/left_type = 0
+slot/8/left_color = Color( 1, 1, 1, 1 )
+slot/8/right_enabled = true
+slot/8/right_type = 10
+slot/8/right_color = Color( 0.380392, 0.545098, 0.8, 1 )
 
 [node name="_labelStage" type="Label" parent="."]
 margin_left = 28.0
 margin_top = 24.0
 margin_right = 249.0
 margin_bottom = 49.0
-text = "Stage ID:"
+text = "Stage:"
 align = 1
 
-[node name="StageID" type="TextEdit" parent="."]
+[node name="StageCH" type="OptionButton" parent="."]
 margin_left = 28.0
 margin_top = 52.0
 margin_right = 249.0
 margin_bottom = 83.0
 rect_min_size = Vector2( 0, 31 )
+text = "Mountain Top"
+align = 1
+items = [ "Mountain Top", null, false, 0, null, "Egyptian Temple", null, false, 1, null, "Clock Tower", null, false, 2, null, "Eurydice Shrine", null, false, 3, null, "Ostrheinsburg Castle", null, false, 4, null, "Water Mill Valley", null, false, 5, null, "Battle in the Strait", null, false, 6, null, "Valentine Mansion", null, false, 7, null ]
+selected = 0
 
 [node name="_labelVariation" type="Label" parent="."]
 margin_left = 28.0
 margin_top = 86.0
 margin_right = 249.0
 margin_bottom = 111.0
-text = "Variation ID:"
+text = "Stage Variation:"
 align = 1
 
 [node name="VariationID" type="TextEdit" parent="."]
@@ -76,7 +98,7 @@ margin_right = 249.0
 margin_bottom = 145.0
 rect_min_size = Vector2( 0, 31 )
 
-[node name="_sepr" type="HSeparator" parent="."]
+[node name="_sepr1" type="HSeparator" parent="."]
 margin_left = 28.0
 margin_top = 148.0
 margin_right = 249.0
@@ -84,10 +106,36 @@ margin_bottom = 158.0
 theme = ExtResource( 1 )
 custom_constants/separation = 10
 
-[node name="GoOUT" type="Label" parent="."]
+[node name="_labelEffect" type="Label" parent="."]
 margin_left = 28.0
 margin_top = 161.0
 margin_right = 249.0
 margin_bottom = 186.0
+text = "Stage Effect:"
+align = 1
+
+[node name="EffectCH" type="OptionButton" parent="."]
+margin_left = 28.0
+margin_top = 189.0
+margin_right = 249.0
+margin_bottom = 220.0
+rect_min_size = Vector2( 0, 31 )
+text = "None"
+items = [ "None", null, false, 0, null, "Wall Toss!", null, false, 1, null, "Earthquake!", null, false, 2, null, "Slippery Floor!", null, false, 3, null, "Hot Potato! [Broken!]", null, false, 4, null, "Doppelganger!", null, false, 5, null, "Poison! [P1 Only!]", null, false, 6, null, "20-in-One!", null, false, 7, null, "Thief Ambush!", null, false, 8, null, "Vampire Ambush!", null, false, 10, null, "Fast Time!", null, false, 11, null, "All Guard Break!", null, false, 13, null, "Poison! [BOTH Players!]", null, false, 17, null, "Poison! [P2 Only!]", null, false, 19, null, "Poison! [P1 Only!]", null, false, 20, null ]
+selected = 0
+
+[node name="_sepr2" type="HSeparator" parent="."]
+margin_left = 28.0
+margin_top = 223.0
+margin_right = 249.0
+margin_bottom = 233.0
+theme = ExtResource( 1 )
+custom_constants/separation = 10
+
+[node name="GoOUT" type="Label" parent="."]
+margin_left = 28.0
+margin_top = 236.0
+margin_right = 249.0
+margin_bottom = 261.0
 text = "Connect"
 align = 1

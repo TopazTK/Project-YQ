@@ -70,7 +70,7 @@ slot/9/right_enabled = false
 slot/9/right_type = 0
 slot/9/right_color = Color( 1, 1, 1, 1 )
 slot/10/left_enabled = true
-slot/10/left_type = 0
+slot/10/left_type = 7
 slot/10/left_color = Color( 0.380392, 0.545098, 0.8, 1 )
 slot/10/right_enabled = false
 slot/10/right_type = 0
@@ -118,7 +118,7 @@ margin_right = 249.0
 margin_bottom = 124.0
 rect_min_size = Vector2( 0, 31 )
 
-[node name="_labelTitle2" type="Label" parent="."]
+[node name="_labelLore" type="Label" parent="."]
 margin_left = 28.0
 margin_top = 127.0
 margin_right = 249.0

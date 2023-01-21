@@ -15,8 +15,7 @@ color = Color( 0.112305, 0.131557, 0.179688, 1 )
 [node name="Menu" type="HBoxContainer" parent="."]
 anchor_right = 1.0
 margin_left = 5.0
-margin_top = 3.0
-margin_bottom = 27.0
+margin_top = 1.0
 custom_constants/separation = 12
 
 [node name="MenuFile" type="MenuButton" parent="Menu"]
@@ -40,7 +39,7 @@ margin_bottom = 25.0
 focus_mode = 2
 theme = ExtResource( 1 )
 text = "Nodes"
-items = [ "Event Node: BATTLE", null, 0, false, false, 0, 0, null, "", false, "Info Node: LOCATION", null, 0, false, false, 1, 0, null, "", false, "Info Node: STAGE", null, 0, false, false, 2, 0, null, "", false, "Event Node: CHOICE", null, 0, false, false, 3, 0, null, "", false ]
+items = [ "Event Node: BATTLE", null, 0, false, false, 0, 0, null, "", false, "Info Node: LOCATION", null, 0, false, false, 1, 0, null, "", false, "Info Node: STAGE", null, 0, false, false, 2, 0, null, "", false, "Event Node: CHOICE", null, 0, false, false, 3, 0, null, "", false, "Info Node: ENEMY", null, 0, false, false, 4, 0, null, "", false ]
 
 [node name="MenuAbout" type="Button" parent="Menu"]
 margin_left = 162.0
@@ -48,6 +47,24 @@ margin_right = 212.0
 margin_bottom = 25.0
 theme = ExtResource( 1 )
 text = "About"
+flat = true
+
+[node name="MenuActions" type="HBoxContainer" parent="."]
+anchor_left = 0.511
+anchor_right = 1.0
+anchor_bottom = 0.042
+margin_top = 1.0
+margin_right = -5.0
+margin_bottom = -0.200003
+custom_constants/separation = 12
+alignment = 2
+
+[node name="MenuBuild" type="Button" parent="MenuActions"]
+margin_left = 446.0
+margin_right = 495.0
+margin_bottom = 25.0
+theme = ExtResource( 1 )
+text = "Build!"
 flat = true
 
 [node name="Editor" type="GraphEdit" parent="."]
@@ -107,7 +124,6 @@ margin_bottom = 49.0
 text = "Node Input"
 
 [node name="DialogAbout" type="WindowDialog" parent="."]
-visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -144,6 +160,8 @@ Armağan, I love you. Thank you.
 scroll_active = false
 
 [connection signal="pressed" from="Menu/MenuAbout" to="Editor" method="AboutEvent"]
+[connection signal="pressed" from="MenuActions/MenuBuild" to="Editor" method="BuildAction"]
+[connection signal="pressed" from="MenuActions/MenuBuild" to="Editor" method="BuildEvent"]
 [connection signal="connection_request" from="Editor" to="Editor" method="ConnectionRequest"]
 [connection signal="connection_request" from="Editor" to="Editor" method="connectionRequest"]
 [connection signal="disconnection_request" from="Editor" to="Editor" method="DisconnectionRequest"]

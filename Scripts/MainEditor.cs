@@ -52,9 +52,20 @@ public class MainEditor : GraphEdit
 			case 3:
 				_nodeScene = (PackedScene)ResourceLoader.Load("res://Nodes/NodeChoice.tscn");
 				break;
+			case 4:
+				_nodeScene = (PackedScene)ResourceLoader.Load("res://Nodes/NodeEnemy.tscn");
+				break;
 		}
 		
 		var _nodeInstance = (GraphNode)_nodeScene.Instance();
 		AddChild(_nodeInstance);
+	}
+	
+	private void BuildEvent()
+	{
+		var _connList = this.GetConnectionList();
+		
+		foreach (var x in _connList)
+			GD.Print(x);
 	}
 }
