@@ -16,6 +16,8 @@ color = Color( 0.112305, 0.131557, 0.179688, 1 )
 anchor_right = 1.0
 margin_left = 5.0
 margin_top = 1.0
+margin_right = -530.0
+margin_bottom = 26.0
 custom_constants/separation = 12
 
 [node name="MenuFile" type="MenuButton" parent="Menu"]
@@ -50,18 +52,18 @@ text = "About"
 flat = true
 
 [node name="MenuActions" type="HBoxContainer" parent="."]
-anchor_left = 0.511
 anchor_right = 1.0
-anchor_bottom = 0.042
+anchor_bottom = 0.002
+margin_left = 959.0
 margin_top = 1.0
 margin_right = -5.0
-margin_bottom = -0.200003
+margin_bottom = 24.8
 custom_constants/separation = 12
 alignment = 2
 
 [node name="MenuBuild" type="Button" parent="MenuActions"]
-margin_left = 446.0
-margin_right = 495.0
+margin_left = 11.0
+margin_right = 60.0
 margin_bottom = 25.0
 theme = ExtResource( 1 )
 text = "Build!"
@@ -85,7 +87,7 @@ margin_bottom = 129.0
 mouse_filter = 1
 title = "SCRIPT: Begin Block"
 offset = Vector2( 75, 75 )
-overlay = 1
+comment = true
 slot/0/left_enabled = false
 slot/0/left_type = 0
 slot/0/left_color = Color( 0.380392, 0.545098, 0.8, 1 )
@@ -108,7 +110,7 @@ margin_bottom = 204.0
 mouse_filter = 1
 title = "SCRIPT: End Block"
 offset = Vector2( 75, 150 )
-overlay = 2
+comment = true
 slot/0/left_enabled = true
 slot/0/left_type = 0
 slot/0/left_color = Color( 0.380392, 0.545098, 0.8, 1 )
@@ -159,9 +161,53 @@ Armağan, I love you. Thank you.
 "
 scroll_active = false
 
+[node name="DialogBuildError" type="WindowDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -207.5
+margin_top = -72.5
+margin_right = 207.5
+margin_bottom = 72.5
+theme = ExtResource( 1 )
+window_title = "ERROR 2810: Build Failed!"
+
+[node name="LabelBuildError" type="RichTextLabel" parent="DialogBuildError"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+bbcode_enabled = true
+bbcode_text = "
+[center]
+The build of this Blueprint has failed! Please hover over the nodes that shine red to see the errors within and address them!
+[/center]
+
+"
+text = "
+
+The build of this Blueprint has failed! Please hover over the nodes that shine red to see the errors within and address them!
+
+
+"
+scroll_active = false
+
+[node name="DialogBuild" type="FileDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -225.0
+margin_top = -186.0
+margin_right = 225.0
+margin_bottom = 186.0
+theme = ExtResource( 1 )
+window_title = "Build Output"
+resizable = true
+access = 2
+filters = PoolStringArray( ".taleScr" )
+
 [connection signal="pressed" from="Menu/MenuAbout" to="Editor" method="AboutEvent"]
-[connection signal="pressed" from="MenuActions/MenuBuild" to="Editor" method="BuildAction"]
 [connection signal="pressed" from="MenuActions/MenuBuild" to="Editor" method="BuildEvent"]
 [connection signal="connection_request" from="Editor" to="Editor" method="ConnectionRequest"]
-[connection signal="connection_request" from="Editor" to="Editor" method="connectionRequest"]
 [connection signal="disconnection_request" from="Editor" to="Editor" method="DisconnectionRequest"]
+[connection signal="file_selected" from="DialogBuild" to="Editor" method="BuildFileSelectEvent"]

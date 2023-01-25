@@ -10,9 +10,13 @@ config_version=4
 
 [application]
 
-config/name="Project: Çilekli Muz [ALPHA | v0.01]"
+config/name="Project: Çilekli Muz [ALPHA | v0.052]"
 run/main_scene="res://MainScene.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/height=720
 
 [gui]
 

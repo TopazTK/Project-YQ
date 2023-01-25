@@ -111,12 +111,15 @@ margin_bottom = 90.0
 text = "Event Title ID:"
 align = 1
 
-[node name="TitleID" type="TextEdit" parent="."]
+[node name="TitleID" type="LineEdit" parent="."]
 margin_left = 28.0
 margin_top = 93.0
 margin_right = 249.0
 margin_bottom = 124.0
 rect_min_size = Vector2( 0, 31 )
+text = "0x0000"
+align = 1
+max_length = 6
 
 [node name="_labelLore" type="Label" parent="."]
 margin_left = 28.0
@@ -126,12 +129,15 @@ margin_bottom = 152.0
 text = "Event Lore ID:"
 align = 1
 
-[node name="LoreID" type="TextEdit" parent="."]
+[node name="LoreID" type="LineEdit" parent="."]
 margin_left = 28.0
 margin_top = 155.0
 margin_right = 249.0
 margin_bottom = 186.0
 rect_min_size = Vector2( 0, 31 )
+text = "0x0000"
+align = 1
+max_length = 6
 
 [node name="_sepr2" type="HSeparator" parent="."]
 margin_left = 28.0

@@ -4,7 +4,7 @@
 
 [node name="NodeBattle" type="GraphNode"]
 margin_right = 277.0
-margin_bottom = 345.0
+margin_bottom = 692.0
 theme = ExtResource( 1 )
 custom_constants/separation = 3
 title = "Info: ENEMY"
@@ -81,7 +81,7 @@ slot/11/left_color = Color( 1, 1, 1, 1 )
 slot/11/right_enabled = false
 slot/11/right_type = 0
 slot/11/right_color = Color( 1, 1, 1, 1 )
-slot/12/left_enabled = true
+slot/12/left_enabled = false
 slot/12/left_type = 34
 slot/12/left_color = Color( 0.380392, 0.545098, 0.8, 1 )
 slot/12/right_enabled = false
@@ -96,9 +96,87 @@ slot/13/right_color = Color( 1, 1, 1, 1 )
 slot/14/left_enabled = false
 slot/14/left_type = 34
 slot/14/left_color = Color( 0.380392, 0.545098, 0.8, 1 )
-slot/14/right_enabled = true
+slot/14/right_enabled = false
 slot/14/right_type = 7
 slot/14/right_color = Color( 0.380392, 0.545098, 0.8, 1 )
+slot/15/left_enabled = false
+slot/15/left_type = 0
+slot/15/left_color = Color( 1, 1, 1, 1 )
+slot/15/right_enabled = false
+slot/15/right_type = 7
+slot/15/right_color = Color( 0.380392, 0.545098, 0.8, 1 )
+slot/16/left_enabled = false
+slot/16/left_type = 0
+slot/16/left_color = Color( 1, 1, 1, 1 )
+slot/16/right_enabled = false
+slot/16/right_type = 0
+slot/16/right_color = Color( 0.380392, 0.545098, 0.8, 1 )
+slot/17/left_enabled = false
+slot/17/left_type = 0
+slot/17/left_color = Color( 1, 1, 1, 1 )
+slot/17/right_enabled = false
+slot/17/right_type = 0
+slot/17/right_color = Color( 1, 1, 1, 1 )
+slot/18/left_enabled = false
+slot/18/left_type = 0
+slot/18/left_color = Color( 1, 1, 1, 1 )
+slot/18/right_enabled = false
+slot/18/right_type = 0
+slot/18/right_color = Color( 1, 1, 1, 1 )
+slot/19/left_enabled = false
+slot/19/left_type = 34
+slot/19/left_color = Color( 0.380392, 0.545098, 0.8, 1 )
+slot/19/right_enabled = false
+slot/19/right_type = 0
+slot/19/right_color = Color( 1, 1, 1, 1 )
+slot/20/left_enabled = false
+slot/20/left_type = 0
+slot/20/left_color = Color( 1, 1, 1, 1 )
+slot/20/right_enabled = false
+slot/20/right_type = 0
+slot/20/right_color = Color( 1, 1, 1, 1 )
+slot/21/left_enabled = false
+slot/21/left_type = 0
+slot/21/left_color = Color( 1, 1, 1, 1 )
+slot/21/right_enabled = false
+slot/21/right_type = 0
+slot/21/right_color = Color( 0.380392, 0.545098, 0.8, 1 )
+slot/22/left_enabled = false
+slot/22/left_type = 34
+slot/22/left_color = Color( 0.380392, 0.545098, 0.8, 1 )
+slot/22/right_enabled = false
+slot/22/right_type = 0
+slot/22/right_color = Color( 1, 1, 1, 1 )
+slot/23/left_enabled = false
+slot/23/left_type = 0
+slot/23/left_color = Color( 1, 1, 1, 1 )
+slot/23/right_enabled = false
+slot/23/right_type = 0
+slot/23/right_color = Color( 1, 1, 1, 1 )
+slot/24/left_enabled = false
+slot/24/left_type = 0
+slot/24/left_color = Color( 1, 1, 1, 1 )
+slot/24/right_enabled = false
+slot/24/right_type = 0
+slot/24/right_color = Color( 0.380392, 0.545098, 0.8, 1 )
+slot/25/left_enabled = true
+slot/25/left_type = 34
+slot/25/left_color = Color( 0.380392, 0.545098, 0.8, 1 )
+slot/25/right_enabled = false
+slot/25/right_type = 0
+slot/25/right_color = Color( 1, 1, 1, 1 )
+slot/26/left_enabled = false
+slot/26/left_type = 0
+slot/26/left_color = Color( 1, 1, 1, 1 )
+slot/26/right_enabled = false
+slot/26/right_type = 0
+slot/26/right_color = Color( 1, 1, 1, 1 )
+slot/27/left_enabled = false
+slot/27/left_type = 0
+slot/27/left_color = Color( 1, 1, 1, 1 )
+slot/27/right_enabled = true
+slot/27/right_type = 7
+slot/27/right_color = Color( 0.380392, 0.545098, 0.8, 1 )
 
 [node name="_labelCharacter" type="Label" parent="."]
 margin_left = 28.0
@@ -116,7 +194,7 @@ margin_bottom = 83.0
 rect_min_size = Vector2( 0, 31 )
 text = "Mitsurugi"
 align = 1
-items = [ "Mitsurugi", null, false, 0, null, "Seong Mi-Na", null, false, 1, null, "Taki", null, false, 2, null, "Maxi", null, false, 3, null, "Voldo", null, false, 4, null, "Sophitia", null, false, 5, null, "Siegfried", null, false, 6, null, "Rock", null, false, 7, null, "Ivy", null, false, 8, null, "Kilik", null, false, 9, null, "Xianghua", null, false, 10, null, "Lizardman", null, false, 11, null, "Yoshimitsu", null, false, 12, null, "Nightmare", null, false, 13, null, "Astaroth", null, false, 14, null, "Cervantes", null, false, 15, null, "Raphael", null, false, 16, null, "Talim", null, false, 17, null, "Cassandra", null, false, 18, null, "Yun-Seong", null, false, 19, null, "Lizardman", null, false, 20, null, "Setsuka", null, false, 21, null, "Tira", null, false, 22, null, "Zasalamel", null, false, 23, null, "Olcadan", null, false, 24, null, "Abyss", null, false, 25, null, "Night Terror", null, false, 26, null ]
+items = [ "Mitsurugi", null, false, 1, null, "Seong Mi-Na", null, false, 2, null, "Taki", null, false, 3, null, "Maxi", null, false, 4, null, "Voldo", null, false, 5, null, "Sophitia", null, false, 6, null, "Siegfried", null, false, 7, null, "Rock", null, false, 8, null, "Ivy", null, false, 11, null, "Kilik", null, false, 12, null, "Xianghua", null, false, 13, null, "Lizardman", null, false, 14, null, "Yoshimitsu", null, false, 15, null, "Nightmare", null, false, 17, null, "Astaroth", null, false, 18, null, "Cervantes", null, false, 20, null, "Raphael", null, false, 21, null, "Talim", null, false, 22, null, "Cassandra", null, false, 23, null, "Yun-Seong", null, false, 26, null, "Lizardmen", null, false, 30, null, "Setsuka", null, false, 34, null, "Tira", null, false, 35, null, "Zasalamel", null, false, 36, null, "Olcadan", null, false, 37, null, "Abyss", null, false, 38, null, "Night Terror", null, false, 39, null ]
 selected = 0
 
 [node name="_labelWeapon" type="Label" parent="."]
@@ -164,19 +242,20 @@ margin_right = 249.0
 margin_bottom = 220.0
 custom_constants/separation = 10
 
-[node name="_labelHealth" type="Label" parent="."]
+[node name="_labelOrder" type="Label" parent="."]
 margin_left = 28.0
 margin_top = 223.0
 margin_right = 249.0
 margin_bottom = 248.0
-text = "Enemy Health:"
+text = "Enemy Priority:"
 align = 1
 
-[node name="HealthCH" type="HSlider" parent="."]
+[node name="OrderVL" type="HSlider" parent="."]
 margin_left = 28.0
 margin_top = 251.0
 margin_right = 249.0
 margin_bottom = 267.0
+max_value = 4.0
 
 [node name="_labelDifficulty" type="Label" parent="."]
 margin_left = 28.0
@@ -186,7 +265,7 @@ margin_bottom = 295.0
 text = "Enemy AI Difficulty:"
 align = 1
 
-[node name="DifficultyCH" type="HSlider" parent="."]
+[node name="DifficultyVL" type="HSlider" parent="."]
 margin_left = 28.0
 margin_top = 298.0
 margin_right = 249.0
@@ -200,25 +279,126 @@ margin_right = 249.0
 margin_bottom = 327.0
 custom_constants/separation = 10
 
-[node name="RewardsIN" type="Label" parent="."]
+[node name="_labelHealth" type="Label" parent="."]
 margin_left = 28.0
 margin_top = 330.0
 margin_right = 249.0
 margin_bottom = 355.0
-text = "Rewards Information"
+text = "Enemy Health:"
 align = 1
 
-[node name="_sepr4" type="HSeparator" parent="."]
+[node name="HealthVL" type="HSlider" parent="."]
 margin_left = 28.0
 margin_top = 358.0
 margin_right = 249.0
-margin_bottom = 368.0
+margin_bottom = 374.0
+max_value = 240.0
+value = 240.0
+
+[node name="_labelRecovery" type="Label" parent="."]
+margin_left = 28.0
+margin_top = 377.0
+margin_right = 249.0
+margin_bottom = 402.0
+text = "Player Health Recovery:"
+align = 1
+
+[node name="RecoverVL" type="HSlider" parent="."]
+margin_left = 28.0
+margin_top = 405.0
+margin_right = 249.0
+margin_bottom = 421.0
+max_value = 240.0
+value = 240.0
+
+[node name="_sepr6" type="HSeparator" parent="."]
+margin_left = 28.0
+margin_top = 424.0
+margin_right = 249.0
+margin_bottom = 434.0
+custom_constants/separation = 10
+
+[node name="_labelPower" type="Label" parent="."]
+margin_left = 28.0
+margin_top = 437.0
+margin_right = 249.0
+margin_bottom = 462.0
+text = "Power Multiplier:"
+align = 1
+
+[node name="PowerVL" type="HSlider" parent="."]
+margin_left = 28.0
+margin_top = 465.0
+margin_right = 249.0
+margin_bottom = 481.0
+value = 100.0
+
+[node name="_labelDefense" type="Label" parent="."]
+margin_left = 28.0
+margin_top = 484.0
+margin_right = 249.0
+margin_bottom = 509.0
+text = "Defense Multiplier:"
+align = 1
+
+[node name="DefenseVL" type="HSlider" parent="."]
+margin_left = 28.0
+margin_top = 512.0
+margin_right = 249.0
+margin_bottom = 528.0
+value = 100.0
+
+[node name="_sepr4" type="HSeparator" parent="."]
+margin_left = 28.0
+margin_top = 531.0
+margin_right = 249.0
+margin_bottom = 541.0
+custom_constants/separation = 10
+
+[node name="_labelTime" type="Label" parent="."]
+margin_left = 28.0
+margin_top = 544.0
+margin_right = 249.0
+margin_bottom = 569.0
+text = "Enemy Time Limit:"
+align = 1
+
+[node name="TimeVL" type="SpinBox" parent="."]
+margin_left = 28.0
+margin_top = 572.0
+margin_right = 249.0
+margin_bottom = 603.0
+rect_min_size = Vector2( 0, 31 )
+max_value = 999.0
+value = 60.0
+align = 1
+
+[node name="_sepr5" type="HSeparator" parent="."]
+margin_left = 28.0
+margin_top = 606.0
+margin_right = 249.0
+margin_bottom = 616.0
+custom_constants/separation = 10
+
+[node name="RewardsIN" type="Label" parent="."]
+margin_left = 28.0
+margin_top = 619.0
+margin_right = 249.0
+margin_bottom = 644.0
+text = "Rewards Information"
+align = 1
+
+[node name="_sepr7" type="HSeparator" parent="."]
+margin_left = 28.0
+margin_top = 647.0
+margin_right = 249.0
+margin_bottom = 657.0
 custom_constants/separation = 10
 
 [node name="GoOUT" type="Label" parent="."]
 margin_left = 28.0
-margin_top = 371.0
+margin_top = 660.0
 margin_right = 249.0
-margin_bottom = 396.0
-text = "Next Node"
+margin_bottom = 685.0
+text = "Connector"
 align = 1

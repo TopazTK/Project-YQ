@@ -80,7 +80,7 @@ margin_bottom = 83.0
 rect_min_size = Vector2( 0, 31 )
 text = "Mountain Top"
 align = 1
-items = [ "Mountain Top", null, false, 0, null, "Egyptian Temple", null, false, 1, null, "Clock Tower", null, false, 2, null, "Eurydice Shrine", null, false, 3, null, "Ostrheinsburg Castle", null, false, 4, null, "Water Mill Valley", null, false, 5, null, "Battle in the Strait", null, false, 6, null, "Valentine Mansion", null, false, 7, null ]
+items = [ "Mountain Top", null, false, 0, null, "Egyptian Temple", null, false, 1, null, "Clock Tower", null, false, 2, null, "Eurydice Shrine", null, false, 3, null, "Ostrheinsburg Castle", null, false, 4, null, "Water Mill Valley", null, false, 5, null, "Battle in the Strait", null, false, 6, null, "Valentine Mansion", null, false, 7, null, "Ling-Sheng Su Temple Ruin", null, false, 8, null, "Lakeside Coliseum", null, false, 9, null, "Kunpaetku Shrine Ruins", null, false, 10, null, "Indian Port", null, false, 11, null, "Lost Cathedral", null, false, 12, null, "Secret Money Pit", null, false, 13, null, "Underground Buddhist Sanctum", null, false, 14, null, "Proving Grounds", null, false, 15, null, "Grand Labyrinth", null, false, 16, null, "Sacred Mt. Fuji", null, false, 17, null, "Lost Cathedral - Ruin", null, false, 18, null, "Pirate Raid", null, false, 19, null, "Jyurakudai Villa", null, false, 20, null, "Romanian Valley", null, false, 21, null, "Lotus Garden", null, false, 22, null, "Old Toledo", null, false, 23, null, "Silk Road Ruin", null, false, 24, null, "Chaos - Spiritual Realm", null, false, 25, null ]
 selected = 0
 
 [node name="_labelVariation" type="Label" parent="."]
@@ -91,12 +91,15 @@ margin_bottom = 111.0
 text = "Stage Variation:"
 align = 1
 
-[node name="VariationID" type="TextEdit" parent="."]
+[node name="VariationID" type="LineEdit" parent="."]
 margin_left = 28.0
 margin_top = 114.0
 margin_right = 249.0
 margin_bottom = 145.0
 rect_min_size = Vector2( 0, 31 )
+text = "0x00"
+align = 1
+max_length = 4
 
 [node name="_sepr1" type="HSeparator" parent="."]
 margin_left = 28.0
@@ -121,6 +124,7 @@ margin_right = 249.0
 margin_bottom = 220.0
 rect_min_size = Vector2( 0, 31 )
 text = "None"
+align = 1
 items = [ "None", null, false, 0, null, "Wall Toss!", null, false, 1, null, "Earthquake!", null, false, 2, null, "Slippery Floor!", null, false, 3, null, "Hot Potato! [Broken!]", null, false, 4, null, "Doppelganger!", null, false, 5, null, "Poison! [P1 Only!]", null, false, 6, null, "20-in-One!", null, false, 7, null, "Thief Ambush!", null, false, 8, null, "Vampire Ambush!", null, false, 10, null, "Fast Time!", null, false, 11, null, "All Guard Break!", null, false, 13, null, "Poison! [BOTH Players!]", null, false, 17, null, "Poison! [P2 Only!]", null, false, 19, null, "Poison! [P1 Only!]", null, false, 20, null ]
 selected = 0
 
@@ -137,5 +141,5 @@ margin_left = 28.0
 margin_top = 236.0
 margin_right = 249.0
 margin_bottom = 261.0
-text = "Connect"
+text = "Connector"
 align = 1
