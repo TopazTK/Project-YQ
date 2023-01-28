@@ -1,15 +1,24 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/mainTheme.theme" type="Theme" id=1]
 [ext_resource path="res://Scripts/MainEditor.cs" type="Script" id=2]
+[ext_resource path="res://Assets/Images/locationPeen.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Images/mapFirst.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/DialogMap.cs" type="Script" id=5]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 17.0
+height = 8.0
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 
 [node name="Background" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 color = Color( 0.112305, 0.131557, 0.179688, 1 )
 
 [node name="Menu" type="HBoxContainer" parent="."]
@@ -18,6 +27,7 @@ margin_left = 5.0
 margin_top = 1.0
 margin_right = -530.0
 margin_bottom = 26.0
+mouse_filter = 2
 custom_constants/separation = 12
 
 [node name="MenuFile" type="MenuButton" parent="Menu"]
@@ -58,6 +68,7 @@ margin_left = 959.0
 margin_top = 1.0
 margin_right = -5.0
 margin_bottom = 24.8
+mouse_filter = 2
 custom_constants/separation = 12
 alignment = 2
 
@@ -101,11 +112,13 @@ margin_top = 24.0
 margin_right = 158.0
 margin_bottom = 49.0
 text = "Node Input"
+align = 1
+valign = 1
 
 [node name="NodeEnd" type="GraphNode" parent="Editor"]
 margin_left = 75.0
 margin_top = 150.0
-margin_right = 248.0
+margin_right = 260.0
 margin_bottom = 204.0
 mouse_filter = 1
 title = "SCRIPT: End Block"
@@ -121,11 +134,18 @@ slot/0/right_color = Color( 1, 1, 1, 1 )
 [node name="EndIN" type="Label" parent="Editor/NodeEnd"]
 margin_left = 28.0
 margin_top = 24.0
-margin_right = 145.0
+margin_right = 157.0
 margin_bottom = 49.0
 text = "Node Input"
+align = 1
+valign = 1
 
-[node name="DialogAbout" type="WindowDialog" parent="."]
+[node name="Dialogs" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="DialogAbout" type="WindowDialog" parent="Dialogs"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -137,7 +157,7 @@ margin_bottom = 101.5
 theme = ExtResource( 1 )
 window_title = "== Project: Çilekli Muz =="
 
-[node name="LabelAbout" type="RichTextLabel" parent="DialogAbout"]
+[node name="LabelAbout" type="RichTextLabel" parent="Dialogs/DialogAbout"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 bbcode_enabled = true
@@ -161,7 +181,7 @@ Armağan, I love you. Thank you.
 "
 scroll_active = false
 
-[node name="DialogBuildError" type="WindowDialog" parent="."]
+[node name="DialogBuildError" type="WindowDialog" parent="Dialogs"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -173,7 +193,7 @@ margin_bottom = 72.5
 theme = ExtResource( 1 )
 window_title = "ERROR 2810: Build Failed!"
 
-[node name="LabelBuildError" type="RichTextLabel" parent="DialogBuildError"]
+[node name="LabelBuildError" type="RichTextLabel" parent="Dialogs/DialogBuildError"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 bbcode_enabled = true
@@ -191,7 +211,7 @@ The build of this Blueprint has failed! Please hover over the nodes that shine r
 "
 scroll_active = false
 
-[node name="DialogBuild" type="FileDialog" parent="."]
+[node name="DialogBuild" type="FileDialog" parent="Dialogs"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -206,8 +226,69 @@ resizable = true
 access = 2
 filters = PoolStringArray( ".taleScr" )
 
+[node name="DialogMap" type="WindowDialog" parent="Dialogs"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -200.0
+margin_right = 512.0
+margin_bottom = 200.0
+mouse_filter = 2
+theme = ExtResource( 1 )
+popup_exclusive = true
+window_title = "Map View - Drag the Pin to select!"
+script = ExtResource( 5 )
+
+[node name="MapView" type="TextureRect" parent="Dialogs/DialogMap"]
+margin_right = 1024.0
+margin_bottom = 400.0
+mouse_filter = 2
+texture = ExtResource( 4 )
+
+[node name="PinVL" type="Area2D" parent="Dialogs/DialogMap/MapView"]
+position = Vector2( 508, 202 )
+z_index = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogs/DialogMap/MapView/PinVL"]
+position = Vector2( 0, 1 )
+z_index = 1
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Dialogs/DialogMap/MapView/PinVL"]
+position = Vector2( 1, 1 )
+z_index = 1
+texture = ExtResource( 3 )
+
+[node name="ChangeBT" type="Button" parent="Dialogs/DialogMap"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = -46.0
+margin_right = 112.0
+margin_bottom = -20.0
+text = "Change Map"
+
+[node name="SubmitBT" type="Button" parent="Dialogs/DialogMap"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -86.0
+margin_top = -43.0
+margin_right = -16.0
+margin_bottom = -17.0
+text = "Submit!"
+
 [connection signal="pressed" from="Menu/MenuAbout" to="Editor" method="AboutEvent"]
 [connection signal="pressed" from="MenuActions/MenuBuild" to="Editor" method="BuildEvent"]
 [connection signal="connection_request" from="Editor" to="Editor" method="ConnectionRequest"]
 [connection signal="disconnection_request" from="Editor" to="Editor" method="DisconnectionRequest"]
-[connection signal="file_selected" from="DialogBuild" to="Editor" method="BuildFileSelectEvent"]
+[connection signal="file_selected" from="Dialogs/DialogBuild" to="Editor" method="BuildFileSelectEvent"]
+[connection signal="about_to_show" from="Dialogs/DialogMap" to="Dialogs/DialogMap" method="ShowEvent"]
+[connection signal="popup_hide" from="Dialogs/DialogMap" to="Dialogs/DialogMap" method="CloseEvent"]
+[connection signal="modal_closed" from="Dialogs/DialogMap/MapView" to="Dialogs/DialogMap" method="CloseEvent"]
+[connection signal="mouse_entered" from="Dialogs/DialogMap/MapView/PinVL" to="Dialogs/DialogMap" method="MouseEnterEvent"]
+[connection signal="mouse_exited" from="Dialogs/DialogMap/MapView/PinVL" to="Dialogs/DialogMap" method="MouseExitEvent"]
+[connection signal="pressed" from="Dialogs/DialogMap/SubmitBT" to="Dialogs/DialogMap" method="SubmitEvent"]

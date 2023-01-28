@@ -1,0 +1,97 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/mainTheme.theme" type="Theme" id=1]
+
+[node name="NodeBattle" type="GraphNode"]
+margin_right = 277.0
+margin_bottom = 175.0
+theme = ExtResource( 1 )
+custom_constants/separation = 3
+title = "Info: REWARD"
+show_close = true
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 0.380392, 0.545098, 0.8, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color( 1, 1, 1, 1 )
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color( 1, 1, 1, 1 )
+slot/3/left_enabled = true
+slot/3/left_type = 34
+slot/3/left_color = Color( 0.380392, 0.545098, 0.8, 1 )
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 0.172549, 0.207843, 0.298039, 1 )
+slot/5/right_enabled = true
+slot/5/right_type = 33
+slot/5/right_color = Color( 0.380392, 0.545098, 0.8, 1 )
+
+[node name="_labelGold" type="Label" parent="."]
+margin_left = 28.0
+margin_top = 24.0
+margin_right = 249.0
+margin_bottom = 49.0
+text = "Rewarded Gold:"
+align = 1
+
+[node name="GoldVL" type="SpinBox" parent="."]
+margin_left = 28.0
+margin_top = 52.0
+margin_right = 249.0
+margin_bottom = 83.0
+rect_min_size = Vector2( 0, 31 )
+max_value = 65500.0
+step = 50.0
+value = 100.0
+align = 1
+suffix = "G"
+
+[node name="_sepr2" type="HSeparator" parent="."]
+margin_left = 28.0
+margin_top = 86.0
+margin_right = 249.0
+margin_bottom = 96.0
+custom_constants/separation = 10
+
+[node name="ItemIN" type="Label" parent="."]
+margin_left = 28.0
+margin_top = 99.0
+margin_right = 249.0
+margin_bottom = 124.0
+text = "Item Reward Information"
+align = 1
+
+[node name="_sepr4" type="HSeparator" parent="."]
+margin_left = 28.0
+margin_top = 127.0
+margin_right = 249.0
+margin_bottom = 137.0
+custom_constants/separation = 10
+
+[node name="GoOUT" type="Label" parent="."]
+margin_left = 28.0
+margin_top = 140.0
+margin_right = 249.0
+margin_bottom = 165.0
+text = "Connector"
+align = 1

@@ -8,15 +8,24 @@ using System.Collections.Generic;
 public class MainEditor : GraphEdit
 {
 	Control _parentNode;
+	
+	Node _selfNode;
+	
 	int _nodeCount = 0;
-	List<byte> _outputArray = new List<byte>();
+	List<byte> _outputArray = new List<byte>() { 0x00, 0x0A, 0x01, 0x05, 0x0F, 0x00, 0x14, 0x01, 0x03, 0x00, 0x19, 0x0A};
 	
 	public override void _Ready()
 	{
+		OS.SetWindowTitle("Project: Çilekli Muz [ALPHA | v0.75]");
+		
 		_parentNode = GetParent() as Control;
+		_selfNode = _parentNode.GetNode("Editor");
 		
 		var _menuNode = _parentNode.GetNode("Menu/MenuNodes") as MenuButton;
 		var _nodePopup = _menuNode.GetPopup();
+		
+		GetNode("NodeBegin").SetOwner(this);
+		GetNode("NodeEnd").SetOwner(this);
 		
 		_nodePopup.Connect("id_pressed", this, "NodeEvent");
 	}
@@ -34,7 +43,7 @@ public class MainEditor : GraphEdit
 	
 	private void AboutEvent()
 	{
-		var _dialogWindow = _parentNode.GetNode("DialogAbout") as WindowDialog;
+		var _dialogWindow = _parentNode.GetNode("Dialogs/DialogAbout") as WindowDialog;
 		
 		_dialogWindow.WindowTitle = "== Project: Çilekli Muz ==";
 		_dialogWindow.Show();
@@ -57,6 +66,7 @@ public class MainEditor : GraphEdit
 				break;
 			case 3:
 				_nodeScene = (PackedScene)ResourceLoader.Load("res://Nodes/NodeChoice.tscn");
+				_nodeScene = (PackedScene)ResourceLoader.Load("res://Nodes/NodeChoice.tscn");
 				break;
 			case 4:
 				_nodeScene = (PackedScene)ResourceLoader.Load("res://Nodes/NodeEnemy.tscn");
@@ -68,7 +78,9 @@ public class MainEditor : GraphEdit
 		_nodeInstance.Name = "NODE_INSTANCE_" + _nodeCount;
 		_nodeCount++;
 		
+		
 		AddChild(_nodeInstance);
+		_nodeInstance.SetOwner(_selfNode);
 	}
 	
 	private void BuildEvent()
@@ -79,32 +91,56 @@ public class MainEditor : GraphEdit
 		GD.Print(this.GetConnectionList());
 		
 		GraphNode _currentNode = null;
-		Dictionary _currentEntry = (Dictionary)_nodeList.ElementAt(0);
+		Dictionary _currentEntry = (Dictionary)_nodeMain.ElementAt(0);
 		
-		int _beginIndex = -1;
+		bool _begFound = false;
+		bool _endFound = false;
 		
-		_outputArray = new List<byte>();
+		_outputArray = new List<byte>() { 0x00, 0x0A, 0x01, 0x05, 0x0F, 0x00, 0x14, 0x01, 0x03, 0x00, 0x19, 0x0A};
 		
-		for(int i = 0; i < _nodeList.Count(); i++)
+		for(int i = 0; i < _nodeMain.Count(); i++)
 		{
-			var _entry = (Dictionary)_nodeList.ElementAt(i);
+			var _entry = (Dictionary)_nodeMain.ElementAt(i);
+			
 			var _fromStr = (String)_entry["from"];
+			var _toStr = (String)_entry["to"];
+			
+			var _tempNode = _fromStr == "NodeBegin" ? GetNode((string)_entry["to"]) as GraphNode : GetNode((string)_entry["from"]) as GraphNode;
+			
+			_tempNode.HintTooltip = "";
+			_tempNode.Overlay = GraphNode.OverlayEnum.Disabled;
 			
 			if (_fromStr == "NodeBegin")
 			{
-				_beginIndex = i;
+				_begFound = true;
 				_currentEntry = _entry;
-				
-				GD.Print("NodeBegin found at: " + _beginIndex);
-				
+			}
+			
+			if (_toStr == "NodeEnd")
+				_endFound = true;
+			
+			if (_endFound && _begFound)
 				break;
+			
+			if (i == _nodeList.Count() - 1)
+			{
+				if (!_begFound)
+					_tempNode.HintTooltip += "The Begin Block was not connected!\n";
+					
+				if (!_endFound)
+					_tempNode.HintTooltip += "The End Block was not connected!\n";
+				
+				_tempNode.Overlay = GraphNode.OverlayEnum.Position;
+					
+				var _errorNode = _parentNode.GetNode("Dialogs/DialogBuildError") as WindowDialog;
+				_errorNode.RectPosition = new Vector2(304.5F, 287.5F);
+				_errorNode.Visible = true;
+				
+				return;
 			}
 		}
 		
 		_outputArray.Add(0x02);
-		
-		if (_beginIndex == -1)
-		GD.Print("Oh no!");
 		
 		while (true)
 		{
@@ -122,20 +158,25 @@ public class MainEditor : GraphEdit
 				var _locationArray = new List<byte>();
 				var _enemyArray = new List<byte>();
 				
-				if (_outputArray.Count() > 0x01)
+				if (_outputArray.Count > 0x0C)
 					_outputArray.Add(0x03);
 				
 				var _titleNode = _currentNode.GetNode("TitleID") as LineEdit;
 				var _loreNode = _currentNode.GetNode("LoreID") as LineEdit;
+				var _musicNode = _currentNode.GetNode("MusicCH") as OptionButton;
 				
 				var _titleID = _titleNode.Text.Contains("0x") ? Convert.ToUInt16(_titleNode.Text, 16) : Convert.ToUInt16(_titleNode.Text);
 				var _loreID = _loreNode.Text.Contains("0x") ? Convert.ToUInt16(_loreNode.Text, 16) : Convert.ToUInt16(_loreNode.Text);
+				var _musicID =  _musicNode.GetItemId(_musicNode.Selected);
 				
 				_outputArray.Add(0x04);
 				_outputArray.AddRange(BitConverter.GetBytes(_titleID));
 				
 				_outputArray.Add(0x05);
 				_outputArray.AddRange(BitConverter.GetBytes(_loreID));
+				
+				_outputArray.Add(0x19);
+				_outputArray.AddRange(BitConverter.GetBytes(_musicID));
 				
 				foreach(Dictionary _s in _connectedNodes)
 				{
@@ -198,8 +239,8 @@ public class MainEditor : GraphEdit
 							var _healthInfo = _subNode.GetNode("HealthVL") as Slider;
 							var _recoveryInfo = _subNode.GetNode("RecoverVL") as Slider;
 							
-							var _powerInfo = _subNode.GetNode("HealthVL") as Slider;
-							var _defenseInfo = _subNode.GetNode("HealthVL") as Slider;
+							var _powerInfo = _subNode.GetNode("PowerVL") as Slider;
+							var _defenseInfo = _subNode.GetNode("DefenseVL") as Slider;
 							
 							var _timeInfo = _subNode.GetNode("TimeVL") as SpinBox;
 							
@@ -208,7 +249,7 @@ public class MainEditor : GraphEdit
 							var _costumeID = _costumeInfo.GetItemId(_costumeInfo.Selected);
 							
 							var _orderValue = _orderInfo.Value;
-							var _difficultyValue = _orderInfo.Value * 0x11;
+							var _difficultyValue = _difficultyInfo.Value * 0x11;
 							
 							var _healthValue = _healthInfo.Value;
 							var _recoveryValue = _recoveryInfo.Value;
@@ -265,7 +306,7 @@ public class MainEditor : GraphEdit
 				{
 					_currentNode.Overlay = GraphNode.OverlayEnum.Position;
 					
-					var _errorNode = _parentNode.GetNode("DialogBuildError") as WindowDialog;
+					var _errorNode = _parentNode.GetNode("Dialogs/DialogBuildError") as WindowDialog;
 					_errorNode.RectPosition = new Vector2(304.5F, 287.5F);
 					_errorNode.Visible = true;
 					
@@ -276,18 +317,22 @@ public class MainEditor : GraphEdit
 				_outputArray.AddRange(_locationArray);
 				_outputArray.AddRange(_enemyArray);
 				
-				_outputArray.AddRange(new byte[] { 0x11, 0x01, 0x01, 0x00 });
+				if ((string)_currentEntry["to"] == "NodeEnd")
+					_outputArray.AddRange(new byte[] { 0x11, 0x12, 0x4C, 0x00, 0x13, 0x0D, 0x01, 0x05, 0x00, 0x0E, 0x01, 0x01, 0x00, 0x03, 0x15, 0x02, 0x00 });
+					
+				else
+					_outputArray.AddRange(new byte[] { 0x11, 0x01, 0x01, 0x00 });
 			}
 			
 			if ((string)_currentEntry["to"] == "NodeEnd")
 			break;
 		}
 		
-		var _fileNode = _parentNode.GetNode("DialogBuild") as FileDialog;
+		var _fileNode = _parentNode.GetNode("Dialogs/DialogBuild") as FileDialog;
 		_fileNode.Visible = true;
 	}
 	
-	private void BuildFileSelectEvent(String path) =>  System.IO.File.WriteAllBytes(path.Replace("taleScr", ".taleScr"), _outputArray.ToArray());
+	private void BuildFileSelectEvent(String path) => System.IO.File.WriteAllBytes(path.Replace("taleScr", ".taleScr"), _outputArray.ToArray());
 }
 
 

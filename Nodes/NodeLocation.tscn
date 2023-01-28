@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Assets/mainTheme.theme" type="Theme" id=1]
+[ext_resource path="res://Scripts/Nodes/NodeLocation.cs" type="Script" id=2]
 
 [node name="NodeLocation" type="GraphNode"]
 margin_right = 277.0
@@ -33,6 +34,7 @@ slot/3/left_color = Color( 1, 1, 1, 1 )
 slot/3/right_enabled = true
 slot/3/right_type = 22
 slot/3/right_color = Color( 0.380392, 0.545098, 0.8, 1 )
+script = ExtResource( 2 )
 
 [node name="CurrIN" type="Button" parent="."]
 margin_left = 28.0
@@ -63,3 +65,6 @@ margin_right = 249.0
 margin_bottom = 135.0
 text = "Connector"
 align = 1
+
+[connection signal="pressed" from="CurrIN" to="." method="CurrentPress"]
+[connection signal="pressed" from="DestIN" to="." method="DestinationPress"]

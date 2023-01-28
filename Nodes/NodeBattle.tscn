@@ -4,7 +4,7 @@
 
 [node name="NodeBattle" type="GraphNode"]
 margin_right = 277.0
-margin_bottom = 345.0
+margin_bottom = 364.0
 theme = ExtResource( 1 )
 custom_constants/separation = 3
 title = "Event: BATTLE"
@@ -12,9 +12,9 @@ show_close = true
 slot/0/left_enabled = true
 slot/0/left_type = 0
 slot/0/left_color = Color( 0.380392, 0.545098, 0.8, 1 )
-slot/0/right_enabled = false
+slot/0/right_enabled = true
 slot/0/right_type = 0
-slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/0/right_color = Color( 0.380392, 0.545098, 0.8, 1 )
 slot/1/left_enabled = false
 slot/1/left_type = 0
 slot/1/left_color = Color( 1, 1, 1, 1 )
@@ -51,26 +51,26 @@ slot/6/left_color = Color( 0.380392, 0.545098, 0.8, 1 )
 slot/6/right_enabled = false
 slot/6/right_type = 0
 slot/6/right_color = Color( 1, 1, 1, 1 )
-slot/7/left_enabled = true
+slot/7/left_enabled = false
 slot/7/left_type = 10
-slot/7/left_color = Color( 0.380392, 0.545098, 0.8, 1 )
+slot/7/left_color = Color( 1, 1, 1, 1 )
 slot/7/right_enabled = false
 slot/7/right_type = 0
 slot/7/right_color = Color( 1, 1, 1, 1 )
-slot/8/left_enabled = true
-slot/8/left_type = 22
-slot/8/left_color = Color( 0.380392, 0.545098, 0.8, 1 )
+slot/8/left_enabled = false
+slot/8/left_type = 0
+slot/8/left_color = Color( 1, 1, 1, 1 )
 slot/8/right_enabled = false
 slot/8/right_type = 0
 slot/8/right_color = Color( 1, 1, 1, 1 )
-slot/9/left_enabled = false
-slot/9/left_type = 0
-slot/9/left_color = Color( 1, 1, 1, 1 )
+slot/9/left_enabled = true
+slot/9/left_type = 10
+slot/9/left_color = Color( 0.380392, 0.545098, 0.8, 1 )
 slot/9/right_enabled = false
 slot/9/right_type = 0
 slot/9/right_color = Color( 1, 1, 1, 1 )
 slot/10/left_enabled = true
-slot/10/left_type = 7
+slot/10/left_type = 22
 slot/10/left_color = Color( 0.380392, 0.545098, 0.8, 1 )
 slot/10/right_enabled = false
 slot/10/right_type = 0
@@ -81,11 +81,11 @@ slot/11/left_color = Color( 1, 1, 1, 1 )
 slot/11/right_enabled = false
 slot/11/right_type = 0
 slot/11/right_color = Color( 1, 1, 1, 1 )
-slot/12/left_enabled = false
-slot/12/left_type = 0
-slot/12/left_color = Color( 1, 1, 1, 1 )
-slot/12/right_enabled = true
-slot/12/right_type = 0
+slot/12/left_enabled = true
+slot/12/left_type = 7
+slot/12/left_color = Color( 0.380392, 0.545098, 0.8, 1 )
+slot/12/right_enabled = false
+slot/12/right_type = 7
 slot/12/right_color = Color( 0.380392, 0.545098, 0.8, 1 )
 
 [node name="GoIN" type="Label" parent="."]
@@ -93,7 +93,7 @@ margin_left = 28.0
 margin_top = 24.0
 margin_right = 249.0
 margin_bottom = 49.0
-text = "Previous Node"
+text = "Node Connect"
 align = 1
 
 [node name="_sepr1" type="HSeparator" parent="."]
@@ -139,55 +139,59 @@ text = "0x0000"
 align = 1
 max_length = 6
 
-[node name="_sepr2" type="HSeparator" parent="."]
+[node name="_labelMusic" type="Label" parent="."]
 margin_left = 28.0
 margin_top = 189.0
 margin_right = 249.0
-margin_bottom = 199.0
+margin_bottom = 214.0
+text = "Lore Music:"
+align = 1
+
+[node name="MusicCH" type="OptionButton" parent="."]
+margin_left = 28.0
+margin_top = 217.0
+margin_right = 249.0
+margin_bottom = 248.0
+rect_min_size = Vector2( 0, 31 )
+text = "Eternal Wayfarer"
+align = 1
+items = [ "Eternal Wayfarer", null, false, 0, null, "The Ordeal", null, false, 3, null, "The Ordeal - Part II", null, false, 4, null, "The Ordeal - Part III", null, false, 5, null, "Under a Black Curse", null, false, 6, null, "Under a Black Curse - Part II", null, false, 7, null, "Grand Labyrinth", null, false, 8, null, "The Intruder", null, false, 9, null, "Under a Black Curse - Part III", null, false, 11, null, "Grand Labyrinth - Part II", null, false, 12, null, "The Intruder - Part II", null, false, 13, null, "If There Were Any Other Way", null, false, 14, null ]
+selected = 0
+
+[node name="_sepr2" type="HSeparator" parent="."]
+margin_left = 28.0
+margin_top = 251.0
+margin_right = 249.0
+margin_bottom = 261.0
 custom_constants/separation = 10
 
 [node name="StageIN" type="Label" parent="."]
 margin_left = 28.0
-margin_top = 202.0
+margin_top = 264.0
 margin_right = 249.0
-margin_bottom = 227.0
+margin_bottom = 289.0
 text = "Stage Information"
 align = 1
 
 [node name="LocationIN" type="Label" parent="."]
 margin_left = 28.0
-margin_top = 230.0
+margin_top = 292.0
 margin_right = 249.0
-margin_bottom = 255.0
+margin_bottom = 317.0
 text = "Location Information"
 align = 1
 
 [node name="_sepr3" type="HSeparator" parent="."]
 margin_left = 28.0
-margin_top = 258.0
+margin_top = 320.0
 margin_right = 249.0
-margin_bottom = 268.0
+margin_bottom = 330.0
 custom_constants/separation = 10
 
 [node name="OpponentIN" type="Label" parent="."]
 margin_left = 28.0
-margin_top = 271.0
+margin_top = 333.0
 margin_right = 249.0
-margin_bottom = 296.0
+margin_bottom = 358.0
 text = "Opponent Information"
-align = 1
-
-[node name="_sepr4" type="HSeparator" parent="."]
-margin_left = 28.0
-margin_top = 299.0
-margin_right = 249.0
-margin_bottom = 309.0
-custom_constants/separation = 10
-
-[node name="GoOUT" type="Label" parent="."]
-margin_left = 28.0
-margin_top = 312.0
-margin_right = 249.0
-margin_bottom = 337.0
-text = "Next Node"
 align = 1

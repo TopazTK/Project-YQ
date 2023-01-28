@@ -10,8 +10,10 @@ config_version=4
 
 [application]
 
-config/name="Project: Çilekli Muz [ALPHA | v0.052]"
+config/name="Project-YQ"
+config/description="A full-fledged Soulcalibur III Tales of Souls Compiler!"
 run/main_scene="res://MainScene.tscn"
+boot_splash/show_image=false
 config/icon="res://icon.png"
 
 [display]

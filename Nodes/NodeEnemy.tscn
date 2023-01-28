@@ -160,7 +160,7 @@ slot/24/right_enabled = false
 slot/24/right_type = 0
 slot/24/right_color = Color( 0.380392, 0.545098, 0.8, 1 )
 slot/25/left_enabled = true
-slot/25/left_type = 34
+slot/25/left_type = 33
 slot/25/left_color = Color( 0.380392, 0.545098, 0.8, 1 )
 slot/25/right_enabled = false
 slot/25/right_type = 0
@@ -331,6 +331,7 @@ margin_left = 28.0
 margin_top = 465.0
 margin_right = 249.0
 margin_bottom = 481.0
+max_value = 500.0
 value = 100.0
 
 [node name="_labelDefense" type="Label" parent="."]
@@ -346,6 +347,7 @@ margin_left = 28.0
 margin_top = 512.0
 margin_right = 249.0
 margin_bottom = 528.0
+max_value = 500.0
 value = 100.0
 
 [node name="_sepr4" type="HSeparator" parent="."]
