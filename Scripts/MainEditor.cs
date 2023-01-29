@@ -161,22 +161,16 @@ public class MainEditor : GraphEdit
 				if (_outputArray.Count > 0x0C)
 					_outputArray.Add(0x03);
 				
-				var _titleNode = _currentNode.GetNode("TitleID") as LineEdit;
-				var _loreNode = _currentNode.GetNode("LoreID") as LineEdit;
 				var _musicNode = _currentNode.GetNode("MusicCH") as OptionButton;
 				
-				var _titleID = _titleNode.Text.Contains("0x") ? Convert.ToUInt16(_titleNode.Text, 16) : Convert.ToUInt16(_titleNode.Text);
-				var _loreID = _loreNode.Text.Contains("0x") ? Convert.ToUInt16(_loreNode.Text, 16) : Convert.ToUInt16(_loreNode.Text);
+				var _titleID = (_currentNode.GetNode("TitleID") as LineEdit).Text;
+				var _loreID = (_currentNode.GetNode("LoreID") as LineEdit).Text;
+				
 				var _musicID =  _musicNode.GetItemId(_musicNode.Selected);
 				
-				_outputArray.Add(0x04);
-				_outputArray.AddRange(BitConverter.GetBytes(_titleID));
-				
-				_outputArray.Add(0x05);
-				_outputArray.AddRange(BitConverter.GetBytes(_loreID));
-				
-				_outputArray.Add(0x19);
-				_outputArray.AddRange(BitConverter.GetBytes(_musicID));
+				_outputArray.AddRange(Helpers.SingleInstruction(0x04, _titleID.ToShort()));
+				_outputArray.AddRange(Helpers.SingleInstruction(0x05, _loreID.ToShort()));
+				_outputArray.AddRange(Helpers.SingleInstruction(0x19, _musicID));
 				
 				foreach(Dictionary _s in _connectedNodes)
 				{
@@ -185,47 +179,19 @@ public class MainEditor : GraphEdit
 					
 					switch (_subTitle)
 					{
-						case "LOCATION":
-							var _currInfo = _subNode.GetNode("CurrIN") as Button;
-							var _destInfo = _subNode.GetNode("DestIN") as Button;
-							
-							var _currCoords = _currInfo.Text.Replace("From: [", "").Replace("]", "").Split(',');
-							var _destCoords = _destInfo.Text.Replace("To: [", "").Replace("]", "").Split(',');
-							
-							var _currArray = new ushort[] { Convert.ToUInt16(_currCoords[0]), Convert.ToUInt16(_currCoords[1]) };
-							var _destArray = new ushort[] { Convert.ToUInt16(_destCoords[0]), Convert.ToUInt16(_destCoords[1]) };
-							
-							_locationArray.Add(0x16);
-							_locationArray.Add(0x00);
-							_locationArray.AddRange(BitConverter.GetBytes(_currArray[0]));
-							_locationArray.AddRange(BitConverter.GetBytes(_currArray[1]));
-							
-							_locationArray.Add(0x17);
-							_locationArray.Add(0x00);
-							_locationArray.Add(0x00);
-							_locationArray.AddRange(BitConverter.GetBytes(_destArray[0]));
-							_locationArray.AddRange(BitConverter.GetBytes(_destArray[1]));
-							
-							break;
 						case "STAGE":
-							var _varInfo = _subNode.GetNode("VariationID") as LineEdit;
 							var _stageInfo = _subNode.GetNode("StageCH") as OptionButton;
 							var _effectInfo = _subNode.GetNode("EffectCH") as OptionButton;
 							
-							var _stageID = _stageInfo.GetItemId(_stageInfo.Selected);
-							var _effectID = _effectInfo.GetItemId(_effectInfo.Selected);
+							var _stageID = (byte)_stageInfo.GetItemId(_stageInfo.Selected);
+							var _effectID = (byte)_effectInfo.GetItemId(_effectInfo.Selected);
 							
-							var _varByte = _varInfo.Text.Contains("0x") ? Convert.ToByte(_varInfo.Text, 16) : Convert.ToByte(_varInfo.Text);
+							var _varByte = (_subNode.GetNode("VariationID") as LineEdit).Text.ToByte();
 							
-							_stageArray.Add(0x0A);
-							_stageArray.Add(Convert.ToByte(_stageID));
-							_stageArray.Add(_varByte);
+							_stageArray.AddRange(Helpers.MultiInstruction(0x0A, new byte[] { _stageID, _varByte }));
 							
 							if (_effectID != 0x00)
-							{
-								_stageArray.Add(0x26);
-								_stageArray.Add(Convert.ToByte(_effectID));
-							}
+								_stageArray.AddRange(Helpers.SingleInstruction(0x26, _effectID));
 							
 							break;
 						case "ENEMY":
@@ -233,61 +199,31 @@ public class MainEditor : GraphEdit
 							var _weaponInfo = _subNode.GetNode("WeaponCH") as OptionButton;
 							var _costumeInfo = _subNode.GetNode("CostumeCH") as OptionButton;
 							
-							var _orderInfo = _subNode.GetNode("OrderVL") as Slider;
-							var _difficultyInfo = _subNode.GetNode("DifficultyVL") as Slider;
+							var _orderValue = (byte)(_subNode.GetNode("OrderVL") as Slider).Value;
+							var _difficultyValue = (byte)(_subNode.GetNode("DifficultyVL") as Slider).Value * (byte)0x11;
 							
-							var _healthInfo = _subNode.GetNode("HealthVL") as Slider;
-							var _recoveryInfo = _subNode.GetNode("RecoverVL") as Slider;
+							var _healthValue = (byte)(_subNode.GetNode("HealthVL") as Slider).Value;
+							var _recoveryValue = (byte)(_subNode.GetNode("RecoverVL") as Slider).Value;
 							
-							var _powerInfo = _subNode.GetNode("PowerVL") as Slider;
-							var _defenseInfo = _subNode.GetNode("DefenseVL") as Slider;
+							var _powValue = Convert.ToUInt16((_subNode.GetNode("PowerVL") as Slider).Value * 10);
+							var _defValue = Convert.ToUInt16((_subNode.GetNode("DefenseVL") as Slider).Value * 10);
 							
-							var _timeInfo = _subNode.GetNode("TimeVL") as SpinBox;
+							var _timeValue = Convert.ToUInt16((_subNode.GetNode("TimeVL") as SpinBox).Value);
 							
 							var _characterID = _characterInfo.GetItemId(_characterInfo.Selected);
 							var _weaponID = _weaponInfo.GetItemId(_weaponInfo.Selected);
 							var _costumeID = _costumeInfo.GetItemId(_costumeInfo.Selected);
 							
-							var _orderValue = _orderInfo.Value;
-							var _difficultyValue = _difficultyInfo.Value * 0x11;
-							
-							var _healthValue = _healthInfo.Value;
-							var _recoveryValue = _recoveryInfo.Value;
-							
-							var _powerValue = Convert.ToUInt16(_powerInfo.Value * 10);
-							var _defenseValue = Convert.ToUInt16(_defenseInfo.Value * 10);
-							
-							var _timeValue = Convert.ToUInt16(_timeInfo.Value);
-							
-							_enemyArray.Add(0x06);
-							_enemyArray.Add(Convert.ToByte(_orderValue));
-							
-							_enemyArray.Add(0x07);
-							_enemyArray.Add(Convert.ToByte(_characterID));
-							
-							_enemyArray.Add(0x08);
-							_enemyArray.Add(Convert.ToByte(_costumeID));
-							
-							_enemyArray.Add(0x09);
-							_enemyArray.Add(Convert.ToByte(_weaponID));
-							
-							_enemyArray.Add(0x1D);
-							_enemyArray.Add(Convert.ToByte(_healthValue));
-							
-							_enemyArray.Add(0x1C);
-							_enemyArray.Add(Convert.ToByte(_recoveryValue));
-							
-							_enemyArray.Add(0x27);
-							_enemyArray.Add(Convert.ToByte(_difficultyValue));
-							
-							_enemyArray.Add(0x23);
-							_enemyArray.AddRange(BitConverter.GetBytes(_powerValue));
-							
-							_enemyArray.Add(0x24);
-							_enemyArray.AddRange(BitConverter.GetBytes(_defenseValue));
-							
-							_enemyArray.Add(0x1B);
-							_enemyArray.AddRange(BitConverter.GetBytes(_timeValue));
+							_enemyArray.AddRange(Helpers.SingleInstruction(0x06, _orderValue));
+							_enemyArray.AddRange(Helpers.SingleInstruction(0x07, _characterID));
+							_enemyArray.AddRange(Helpers.SingleInstruction(0x08, _costumeID));
+							_enemyArray.AddRange(Helpers.SingleInstruction(0x09, _weaponID));
+							_enemyArray.AddRange(Helpers.SingleInstruction(0x1D, _healthValue));
+							_enemyArray.AddRange(Helpers.SingleInstruction(0x1C, _recoveryValue));
+							_enemyArray.AddRange(Helpers.SingleInstruction(0x27, _difficultyValue));
+							_enemyArray.AddRange(Helpers.SingleInstruction(0x23, _powValue));
+							_enemyArray.AddRange(Helpers.SingleInstruction(0x24, _defValue));
+							_enemyArray.AddRange(Helpers.SingleInstruction(0x1B, _timeValue));
 							
 							break;
 					}
@@ -296,8 +232,8 @@ public class MainEditor : GraphEdit
 				if (_stageArray.Count() == 0x00)
 					_currentNode.HintTooltip += "No STAGE Node is connected!\n";
 				
-				if (_locationArray.Count() == 0x00)
-					_currentNode.HintTooltip += "No LOCATION Node is connected!\n";
+				// if (_locationArray.Count() == 0x00)
+					// _currentNode.HintTooltip += "No LOCATION Node is connected!\n";
 				
 				if (_enemyArray.Count() == 0x00)
 					_currentNode.HintTooltip += "No ENEMY Node is connected!\n";
