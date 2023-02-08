@@ -1,11 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://Assets/mainTheme.theme" type="Theme" id=1]
-[ext_resource path="res://Scripts/Nodes/NodeLocation.cs" type="Script" id=2]
 
 [node name="NodeLocation" type="GraphNode"]
 margin_right = 277.0
-margin_bottom = 143.0
+margin_bottom = 189.0
 theme = ExtResource( 1 )
 custom_constants/separation = 6
 title = "Info: LOCATION"
@@ -13,9 +12,9 @@ show_close = true
 slot/0/left_enabled = false
 slot/0/left_type = 0
 slot/0/left_color = Color( 1, 1, 1, 1 )
-slot/0/right_enabled = false
-slot/0/right_type = 0
-slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 22
+slot/0/right_color = Color( 0.380392, 0.545098, 0.8, 1 )
 slot/1/left_enabled = false
 slot/1/left_type = 0
 slot/1/left_color = Color( 1, 1, 1, 1 )
@@ -31,40 +30,96 @@ slot/2/right_color = Color( 1, 1, 1, 1 )
 slot/3/left_enabled = false
 slot/3/left_type = 0
 slot/3/left_color = Color( 1, 1, 1, 1 )
-slot/3/right_enabled = true
-slot/3/right_type = 22
-slot/3/right_color = Color( 0.380392, 0.545098, 0.8, 1 )
-script = ExtResource( 2 )
-
-[node name="CurrIN" type="Button" parent="."]
-margin_left = 28.0
-margin_top = 24.0
-margin_right = 249.0
-margin_bottom = 56.0
-rect_min_size = Vector2( 0, 32 )
-text = "From: [0, 0]"
-
-[node name="DestIN" type="Button" parent="."]
-margin_left = 28.0
-margin_top = 62.0
-margin_right = 249.0
-margin_bottom = 94.0
-rect_min_size = Vector2( 0, 32 )
-text = "To: [0, 0]"
-
-[node name="_sepr" type="HSeparator" parent="."]
-margin_left = 28.0
-margin_top = 100.0
-margin_right = 249.0
-margin_bottom = 104.0
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color( 1, 1, 1, 1 )
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color( 1, 1, 1, 1 )
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color( 1, 1, 1, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
 
 [node name="GoOUT" type="Label" parent="."]
 margin_left = 28.0
-margin_top = 110.0
-margin_right = 249.0
-margin_bottom = 135.0
-text = "Connector"
+margin_top = 24.0
+margin_right = 272.0
+margin_bottom = 49.0
+text = "Node Connect"
 align = 1
 
-[connection signal="pressed" from="CurrIN" to="." method="CurrentPress"]
-[connection signal="pressed" from="DestIN" to="." method="DestinationPress"]
+[node name="_sepr" type="HSeparator" parent="."]
+margin_left = 28.0
+margin_top = 55.0
+margin_right = 272.0
+margin_bottom = 59.0
+
+[node name="_labelLoct" type="Label" parent="."]
+margin_left = 28.0
+margin_top = 65.0
+margin_right = 272.0
+margin_bottom = 90.0
+text = "Current Location:"
+align = 1
+
+[node name="LoctVL" type="HBoxContainer" parent="."]
+margin_left = 28.0
+margin_top = 96.0
+margin_right = 272.0
+margin_bottom = 118.0
+
+[node name="MAP" type="SpinBox" parent="LoctVL"]
+margin_right = 76.0
+margin_bottom = 22.0
+max_value = 2.0
+align = 1
+
+[node name="X" type="LineEdit" parent="LoctVL"]
+margin_left = 80.0
+margin_right = 160.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 80, 0 )
+
+[node name="Y" type="LineEdit" parent="LoctVL"]
+margin_left = 164.0
+margin_right = 244.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 80, 0 )
+
+[node name="_labelDest" type="Label" parent="."]
+margin_left = 28.0
+margin_top = 124.0
+margin_right = 272.0
+margin_bottom = 149.0
+text = "Destination:"
+align = 1
+
+[node name="DestVL" type="HBoxContainer" parent="."]
+margin_left = 28.0
+margin_top = 155.0
+margin_right = 272.0
+margin_bottom = 177.0
+
+[node name="MAP" type="SpinBox" parent="DestVL"]
+margin_right = 76.0
+margin_bottom = 22.0
+max_value = 2.0
+align = 1
+
+[node name="X" type="LineEdit" parent="DestVL"]
+margin_left = 80.0
+margin_right = 160.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 80, 0 )
+
+[node name="Y" type="LineEdit" parent="DestVL"]
+margin_left = 164.0
+margin_right = 244.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 80, 0 )

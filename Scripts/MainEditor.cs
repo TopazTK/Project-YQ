@@ -9,6 +9,7 @@ public class MainEditor : GraphEdit
 {
 	Control _parentNode;
 	
+	Node _foreNode;
 	Node _selfNode;
 	
 	int _nodeCount = 0;
@@ -19,7 +20,9 @@ public class MainEditor : GraphEdit
 		OS.SetWindowTitle("Project: Çilekli Muz [ALPHA | v0.75]");
 		
 		_parentNode = GetParent() as Control;
+		
 		_selfNode = _parentNode.GetNode("Editor");
+		_foreNode = _parentNode.GetNode("Foreground");
 		
 		var _menuNode = _parentNode.GetNode("Menu/MenuNodes") as MenuButton;
 		var _nodePopup = _menuNode.GetPopup();
@@ -140,8 +143,6 @@ public class MainEditor : GraphEdit
 			}
 		}
 		
-		_outputArray.Add(0x02);
-		
 		while (true)
 		{
 			_currentEntry = _nodeMain.First(x => (string)x["from"] == (string)_currentEntry["to"]);
@@ -160,6 +161,9 @@ public class MainEditor : GraphEdit
 				
 				if (_outputArray.Count > 0x0C)
 					_outputArray.Add(0x03);
+					
+				else
+					_outputArray.Add(0x02);
 				
 				var _musicNode = _currentNode.GetNode("MusicCH") as OptionButton;
 				
@@ -168,9 +172,26 @@ public class MainEditor : GraphEdit
 				
 				var _musicID =  _musicNode.GetItemId(_musicNode.Selected);
 				
+				var _defendCheck = (_currentNode.GetNode("DefendCH") as CheckBox).Pressed;
+				var _specialCheck = (_currentNode.GetNode("SpecialCH") as CheckBox).Pressed;
+				var _destinedCheck = (_currentNode.GetNode("DestinedCH") as CheckBox).Pressed;
+				var _continueCheck = (_currentNode.GetNode("ContinueCH") as CheckBox).Pressed;
+				
 				_outputArray.AddRange(Helpers.SingleInstruction(0x04, _titleID.ToShort()));
 				_outputArray.AddRange(Helpers.SingleInstruction(0x05, _loreID.ToShort()));
 				_outputArray.AddRange(Helpers.SingleInstruction(0x19, _musicID));
+				
+				if (_defendCheck)
+					_outputArray.Add(0x1A);
+					
+				if (_specialCheck)
+					_outputArray.Add(0x1E);
+					
+				if (_destinedCheck)
+					_outputArray.AddRange(Helpers.SingleInstruction(0x20, 0x0E));
+				
+				if (!_continueCheck)
+					_outputArray.AddRange(Helpers.MultiInstruction(0x0B, new byte[] { 0x03, 0x05 }));
 				
 				foreach(Dictionary _s in _connectedNodes)
 				{
@@ -179,6 +200,27 @@ public class MainEditor : GraphEdit
 					
 					switch (_subTitle)
 					{
+						case "LOCATION":
+							var _loctNode = _subNode.GetNode("LoctVL");
+							var _destNode = _subNode.GetNode("DestVL");
+							
+							var _loctM = (byte)(_loctNode.GetNode("MAP") as SpinBox).Value;
+							var _loctX = (_loctNode.GetNode("X") as LineEdit).Text.ToShort();
+							var _loctY = (_loctNode.GetNode("Y") as LineEdit).Text.ToShort();
+							
+							var _destM = (byte)(_destNode.GetNode("MAP") as SpinBox).Value;
+							var _destX = (_destNode.GetNode("X") as LineEdit).Text.ToShort();
+							var _destY = (_destNode.GetNode("Y") as LineEdit).Text.ToShort();
+							
+							_locationArray.AddRange(new byte[] {0x16, _loctM});
+							_locationArray.AddRange(_loctX.GetBytes());
+							_locationArray.AddRange(_loctY.GetBytes());
+							
+							_locationArray.AddRange(new byte[] {0x17, 0x00, _destM});
+							_locationArray.AddRange(_destX.GetBytes());
+							_locationArray.AddRange(_destY.GetBytes());
+							
+							break;
 						case "STAGE":
 							var _stageInfo = _subNode.GetNode("StageCH") as OptionButton;
 							var _effectInfo = _subNode.GetNode("EffectCH") as OptionButton;
@@ -232,8 +274,8 @@ public class MainEditor : GraphEdit
 				if (_stageArray.Count() == 0x00)
 					_currentNode.HintTooltip += "No STAGE Node is connected!\n";
 				
-				// if (_locationArray.Count() == 0x00)
-					// _currentNode.HintTooltip += "No LOCATION Node is connected!\n";
+				if (_locationArray.Count() == 0x00)
+					_currentNode.HintTooltip += "No LOCATION Node is connected!\n";
 				
 				if (_enemyArray.Count() == 0x00)
 					_currentNode.HintTooltip += "No ENEMY Node is connected!\n";

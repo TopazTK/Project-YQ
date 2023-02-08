@@ -12,9 +12,9 @@ show_close = true
 slot/0/left_enabled = false
 slot/0/left_type = 0
 slot/0/left_color = Color( 0.380392, 0.545098, 0.8, 1 )
-slot/0/right_enabled = false
-slot/0/right_type = 0
-slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 7
+slot/0/right_color = Color( 0.380392, 0.545098, 0.8, 1 )
 slot/1/left_enabled = false
 slot/1/left_type = 0
 slot/1/left_color = Color( 1, 1, 1, 1 )
@@ -159,7 +159,7 @@ slot/24/left_color = Color( 1, 1, 1, 1 )
 slot/24/right_enabled = false
 slot/24/right_type = 0
 slot/24/right_color = Color( 0.380392, 0.545098, 0.8, 1 )
-slot/25/left_enabled = true
+slot/25/left_enabled = false
 slot/25/left_type = 33
 slot/25/left_color = Color( 0.380392, 0.545098, 0.8, 1 )
 slot/25/right_enabled = false
@@ -171,45 +171,60 @@ slot/26/left_color = Color( 1, 1, 1, 1 )
 slot/26/right_enabled = false
 slot/26/right_type = 0
 slot/26/right_color = Color( 1, 1, 1, 1 )
-slot/27/left_enabled = false
-slot/27/left_type = 0
-slot/27/left_color = Color( 1, 1, 1, 1 )
-slot/27/right_enabled = true
+slot/27/left_enabled = true
+slot/27/left_type = 33
+slot/27/left_color = Color( 0.380392, 0.545098, 0.8, 1 )
+slot/27/right_enabled = false
 slot/27/right_type = 7
 slot/27/right_color = Color( 0.380392, 0.545098, 0.8, 1 )
 
-[node name="_labelCharacter" type="Label" parent="."]
+[node name="GoOUT" type="Label" parent="."]
 margin_left = 28.0
 margin_top = 24.0
 margin_right = 249.0
 margin_bottom = 49.0
+text = "Node Connect"
+align = 1
+
+[node name="_sepr7" type="HSeparator" parent="."]
+margin_left = 28.0
+margin_top = 52.0
+margin_right = 249.0
+margin_bottom = 62.0
+custom_constants/separation = 10
+
+[node name="_labelCharacter" type="Label" parent="."]
+margin_left = 28.0
+margin_top = 65.0
+margin_right = 249.0
+margin_bottom = 90.0
 text = "Enemy Character:"
 align = 1
 
 [node name="CharacterCH" type="OptionButton" parent="."]
 margin_left = 28.0
-margin_top = 52.0
+margin_top = 93.0
 margin_right = 249.0
-margin_bottom = 83.0
+margin_bottom = 124.0
 rect_min_size = Vector2( 0, 31 )
 text = "Mitsurugi"
 align = 1
-items = [ "Mitsurugi", null, false, 1, null, "Seong Mi-Na", null, false, 2, null, "Taki", null, false, 3, null, "Maxi", null, false, 4, null, "Voldo", null, false, 5, null, "Sophitia", null, false, 6, null, "Siegfried", null, false, 7, null, "Rock", null, false, 8, null, "Ivy", null, false, 11, null, "Kilik", null, false, 12, null, "Xianghua", null, false, 13, null, "Lizardman", null, false, 14, null, "Yoshimitsu", null, false, 15, null, "Nightmare", null, false, 17, null, "Astaroth", null, false, 18, null, "Cervantes", null, false, 20, null, "Raphael", null, false, 21, null, "Talim", null, false, 22, null, "Cassandra", null, false, 23, null, "Yun-Seong", null, false, 26, null, "Lizardmen", null, false, 30, null, "Setsuka", null, false, 34, null, "Tira", null, false, 35, null, "Zasalamel", null, false, 36, null, "Olcadan", null, false, 37, null, "Abyss", null, false, 38, null, "Night Terror", null, false, 39, null ]
+items = [ "Mitsurugi", null, false, 1, null, "Seong Mi-Na", null, false, 2, null, "Taki", null, false, 3, null, "Maxi", null, false, 4, null, "Voldo", null, false, 5, null, "Sophitia", null, false, 6, null, "Siegfried", null, false, 7, null, "Rock", null, false, 8, null, "Ivy", null, false, 11, null, "Kilik", null, false, 12, null, "Xianghua", null, false, 13, null, "Lizardman", null, false, 14, null, "Yoshimitsu", null, false, 15, null, "Nightmare", null, false, 17, null, "Astaroth", null, false, 18, null, "Cervantes", null, false, 20, null, "Raphael", null, false, 21, null, "Talim", null, false, 22, null, "Cassandra", null, false, 23, null, "Yun-Seong", null, false, 26, null, "Lizardmen", null, false, 30, null, "Setsuka", null, false, 34, null, "Tira", null, false, 35, null, "Zasalamel", null, false, 36, null, "Olcadan", null, false, 37, null, "Abyss", null, false, 38, null, "Night Terror", null, false, 39, null, "Charade", null, false, 40, null, "Charade [Legs]", null, false, 41, null, "Charade [Eye]", null, false, 42, null, "Doppelganger", null, false, 45, null, "Shadow Master", null, false, 46, null, "Amy", null, false, 48, null, "Colossus", null, false, 49, null, "Miser", null, false, 65, null, "Greed", null, false, 66, null, "Arthur", null, false, 67, null, "Hwang", null, false, 68, null, "Luna", null, false, 69, null, "Valeria", null, false, 70, null, "Hualin", null, false, 71, null, "Girardot", null, false, 72, null, "Demuth", null, false, 74, null, "Aurelia", null, false, 75, null, "Chester", null, false, 76, null, "Strife", null, false, 77, null, "Abelia", null, false, 78, null, "Lynette", null, false, 79, null, "Li-Long", null, false, 81, null, "Revenant", null, false, 84, null, "Berserker", null, false, 129, null, "Samurai", null, false, 132, null, "Gladiator (Iron Sword)", null, false, 133, null, "Gladiator (Sword & Shield)", null, false, 134, null, "Unknown Soul (Li-Long)", null, false, 135, null, "Unknown Soul (Hwang)", null, false, 136, null, "Unknown Soul (Arthur)", null, false, 137, null, "Fu-ma Ninja (Kunai)", null, false, 138, null, "Fu-ma Ninja (Sickle)", null, false, 139, null, "Fu-ma Ninja (Katana & Shuriken)", null, false, 140, null, "Bandit (Chinese Blade)", null, false, 141, null, "Bandit (Sickle)", null, false, 142, null, "Thief (Dagger)", null, false, 143, null, "Thief (Dagger)", null, false, 144, null, "Pirate (Dagger)", null, false, 145, null, "Pirate (Chinese Sword)", null, false, 146, null, "Assassin (Kunai)", null, false, 147, null, "Swordsman (Chinese Blade)", null, false, 148, null, "Foot Soldier (Sword & Shield)", null, false, 149, null, "General (Iron Sword)", null, false, 150, null, "Sentry (Staff)", null, false, 151, null, "Keres", null, false, 152, null, "Dragon", null, false, 153, null ]
 selected = 0
 
 [node name="_labelWeapon" type="Label" parent="."]
 margin_left = 28.0
-margin_top = 86.0
+margin_top = 127.0
 margin_right = 249.0
-margin_bottom = 111.0
+margin_bottom = 152.0
 text = "Enemy Weapon:"
 align = 1
 
 [node name="WeaponCH" type="OptionButton" parent="."]
 margin_left = 28.0
-margin_top = 114.0
+margin_top = 155.0
 margin_right = 249.0
-margin_bottom = 145.0
+margin_bottom = 186.0
 rect_min_size = Vector2( 0, 31 )
 text = "The Silent"
 align = 1
@@ -218,17 +233,17 @@ selected = 0
 
 [node name="_labelCostume" type="Label" parent="."]
 margin_left = 28.0
-margin_top = 148.0
+margin_top = 189.0
 margin_right = 249.0
-margin_bottom = 173.0
+margin_bottom = 214.0
 text = "Enemy Costume:"
 align = 1
 
 [node name="CostumeCH" type="OptionButton" parent="."]
 margin_left = 28.0
-margin_top = 176.0
+margin_top = 217.0
 margin_right = 249.0
-margin_bottom = 207.0
+margin_bottom = 248.0
 rect_min_size = Vector2( 0, 31 )
 text = "Player 1"
 align = 1
@@ -237,139 +252,139 @@ selected = 0
 
 [node name="_sepr2" type="HSeparator" parent="."]
 margin_left = 28.0
-margin_top = 210.0
+margin_top = 251.0
 margin_right = 249.0
-margin_bottom = 220.0
+margin_bottom = 261.0
 custom_constants/separation = 10
 
 [node name="_labelOrder" type="Label" parent="."]
 margin_left = 28.0
-margin_top = 223.0
+margin_top = 264.0
 margin_right = 249.0
-margin_bottom = 248.0
+margin_bottom = 289.0
 text = "Enemy Priority:"
 align = 1
 
 [node name="OrderVL" type="HSlider" parent="."]
 margin_left = 28.0
-margin_top = 251.0
+margin_top = 292.0
 margin_right = 249.0
-margin_bottom = 267.0
+margin_bottom = 308.0
 max_value = 4.0
 
 [node name="_labelDifficulty" type="Label" parent="."]
 margin_left = 28.0
-margin_top = 270.0
+margin_top = 311.0
 margin_right = 249.0
-margin_bottom = 295.0
+margin_bottom = 336.0
 text = "Enemy AI Difficulty:"
 align = 1
 
 [node name="DifficultyVL" type="HSlider" parent="."]
 margin_left = 28.0
-margin_top = 298.0
+margin_top = 339.0
 margin_right = 249.0
-margin_bottom = 314.0
+margin_bottom = 355.0
 max_value = 10.0
 
 [node name="_sepr3" type="HSeparator" parent="."]
 margin_left = 28.0
-margin_top = 317.0
+margin_top = 358.0
 margin_right = 249.0
-margin_bottom = 327.0
+margin_bottom = 368.0
 custom_constants/separation = 10
 
 [node name="_labelHealth" type="Label" parent="."]
 margin_left = 28.0
-margin_top = 330.0
+margin_top = 371.0
 margin_right = 249.0
-margin_bottom = 355.0
+margin_bottom = 396.0
 text = "Enemy Health:"
 align = 1
 
 [node name="HealthVL" type="HSlider" parent="."]
 margin_left = 28.0
-margin_top = 358.0
+margin_top = 399.0
 margin_right = 249.0
-margin_bottom = 374.0
+margin_bottom = 415.0
 max_value = 240.0
 value = 240.0
 
 [node name="_labelRecovery" type="Label" parent="."]
 margin_left = 28.0
-margin_top = 377.0
+margin_top = 418.0
 margin_right = 249.0
-margin_bottom = 402.0
+margin_bottom = 443.0
 text = "Player Health Recovery:"
 align = 1
 
 [node name="RecoverVL" type="HSlider" parent="."]
 margin_left = 28.0
-margin_top = 405.0
+margin_top = 446.0
 margin_right = 249.0
-margin_bottom = 421.0
+margin_bottom = 462.0
 max_value = 240.0
 value = 240.0
 
 [node name="_sepr6" type="HSeparator" parent="."]
 margin_left = 28.0
-margin_top = 424.0
+margin_top = 465.0
 margin_right = 249.0
-margin_bottom = 434.0
+margin_bottom = 475.0
 custom_constants/separation = 10
 
 [node name="_labelPower" type="Label" parent="."]
 margin_left = 28.0
-margin_top = 437.0
+margin_top = 478.0
 margin_right = 249.0
-margin_bottom = 462.0
+margin_bottom = 503.0
 text = "Power Multiplier:"
 align = 1
 
 [node name="PowerVL" type="HSlider" parent="."]
 margin_left = 28.0
-margin_top = 465.0
+margin_top = 506.0
 margin_right = 249.0
-margin_bottom = 481.0
+margin_bottom = 522.0
 max_value = 500.0
 value = 100.0
 
 [node name="_labelDefense" type="Label" parent="."]
 margin_left = 28.0
-margin_top = 484.0
+margin_top = 525.0
 margin_right = 249.0
-margin_bottom = 509.0
+margin_bottom = 550.0
 text = "Defense Multiplier:"
 align = 1
 
 [node name="DefenseVL" type="HSlider" parent="."]
 margin_left = 28.0
-margin_top = 512.0
+margin_top = 553.0
 margin_right = 249.0
-margin_bottom = 528.0
+margin_bottom = 569.0
 max_value = 500.0
 value = 100.0
 
 [node name="_sepr4" type="HSeparator" parent="."]
 margin_left = 28.0
-margin_top = 531.0
+margin_top = 572.0
 margin_right = 249.0
-margin_bottom = 541.0
+margin_bottom = 582.0
 custom_constants/separation = 10
 
 [node name="_labelTime" type="Label" parent="."]
 margin_left = 28.0
-margin_top = 544.0
+margin_top = 585.0
 margin_right = 249.0
-margin_bottom = 569.0
+margin_bottom = 610.0
 text = "Enemy Time Limit:"
 align = 1
 
 [node name="TimeVL" type="SpinBox" parent="."]
 margin_left = 28.0
-margin_top = 572.0
+margin_top = 613.0
 margin_right = 249.0
-margin_bottom = 603.0
+margin_bottom = 644.0
 rect_min_size = Vector2( 0, 31 )
 max_value = 999.0
 value = 60.0
@@ -377,30 +392,15 @@ align = 1
 
 [node name="_sepr5" type="HSeparator" parent="."]
 margin_left = 28.0
-margin_top = 606.0
-margin_right = 249.0
-margin_bottom = 616.0
-custom_constants/separation = 10
-
-[node name="RewardsIN" type="Label" parent="."]
-margin_left = 28.0
-margin_top = 619.0
-margin_right = 249.0
-margin_bottom = 644.0
-text = "Rewards Information"
-align = 1
-
-[node name="_sepr7" type="HSeparator" parent="."]
-margin_left = 28.0
 margin_top = 647.0
 margin_right = 249.0
 margin_bottom = 657.0
 custom_constants/separation = 10
 
-[node name="GoOUT" type="Label" parent="."]
+[node name="RewardsIN" type="Label" parent="."]
 margin_left = 28.0
 margin_top = 660.0
 margin_right = 249.0
 margin_bottom = 685.0
-text = "Connector"
+text = "Rewards Information"
 align = 1

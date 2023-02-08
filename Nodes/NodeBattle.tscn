@@ -63,30 +63,60 @@ slot/8/left_color = Color( 1, 1, 1, 1 )
 slot/8/right_enabled = false
 slot/8/right_type = 0
 slot/8/right_color = Color( 1, 1, 1, 1 )
-slot/9/left_enabled = true
-slot/9/left_type = 10
-slot/9/left_color = Color( 0.380392, 0.545098, 0.8, 1 )
+slot/9/left_enabled = false
+slot/9/left_type = 0
+slot/9/left_color = Color( 1, 1, 1, 1 )
 slot/9/right_enabled = false
 slot/9/right_type = 0
 slot/9/right_color = Color( 1, 1, 1, 1 )
-slot/10/left_enabled = true
-slot/10/left_type = 22
-slot/10/left_color = Color( 0.380392, 0.545098, 0.8, 1 )
+slot/10/left_enabled = false
+slot/10/left_type = 0
+slot/10/left_color = Color( 1, 1, 1, 1 )
 slot/10/right_enabled = false
 slot/10/right_type = 0
-slot/10/right_color = Color( 0.380392, 0.545098, 0.8, 1 )
+slot/10/right_color = Color( 1, 1, 1, 1 )
 slot/11/left_enabled = false
 slot/11/left_type = 0
 slot/11/left_color = Color( 1, 1, 1, 1 )
 slot/11/right_enabled = false
 slot/11/right_type = 0
 slot/11/right_color = Color( 1, 1, 1, 1 )
-slot/12/left_enabled = true
-slot/12/left_type = 7
-slot/12/left_color = Color( 0.380392, 0.545098, 0.8, 1 )
+slot/12/left_enabled = false
+slot/12/left_type = 0
+slot/12/left_color = Color( 1, 1, 1, 1 )
 slot/12/right_enabled = false
-slot/12/right_type = 7
-slot/12/right_color = Color( 0.380392, 0.545098, 0.8, 1 )
+slot/12/right_type = 0
+slot/12/right_color = Color( 1, 1, 1, 1 )
+slot/13/left_enabled = false
+slot/13/left_type = 10
+slot/13/left_color = Color( 0.380392, 0.545098, 0.8, 1 )
+slot/13/right_enabled = false
+slot/13/right_type = 0
+slot/13/right_color = Color( 1, 1, 1, 1 )
+slot/14/left_enabled = true
+slot/14/left_type = 10
+slot/14/left_color = Color( 0.380392, 0.545098, 0.8, 1 )
+slot/14/right_enabled = false
+slot/14/right_type = 0
+slot/14/right_color = Color( 1, 1, 1, 1 )
+slot/15/left_enabled = true
+slot/15/left_type = 22
+slot/15/left_color = Color( 0.380392, 0.545098, 0.8, 1 )
+slot/15/right_enabled = false
+slot/15/right_type = 0
+slot/15/right_color = Color( 1, 1, 1, 1 )
+slot/16/left_enabled = false
+slot/16/left_type = 0
+slot/16/left_color = Color( 1, 1, 1, 1 )
+slot/16/right_enabled = false
+slot/16/right_type = 0
+slot/16/right_color = Color( 1, 1, 1, 1 )
+slot/17/left_enabled = true
+slot/17/left_type = 7
+slot/17/left_color = Color( 0.380392, 0.545098, 0.8, 1 )
+slot/17/right_enabled = false
+slot/17/right_type = 0
+slot/17/right_color = Color( 1, 1, 1, 1 )
 
 [node name="GoIN" type="Label" parent="."]
 margin_left = 28.0
@@ -155,7 +185,7 @@ margin_bottom = 248.0
 rect_min_size = Vector2( 0, 31 )
 text = "Eternal Wayfarer"
 align = 1
-items = [ "Eternal Wayfarer", null, false, 0, null, "The Ordeal", null, false, 3, null, "The Ordeal - Part II", null, false, 4, null, "The Ordeal - Part III", null, false, 5, null, "Under a Black Curse", null, false, 6, null, "Under a Black Curse - Part II", null, false, 7, null, "Grand Labyrinth", null, false, 8, null, "The Intruder", null, false, 9, null, "Under a Black Curse - Part III", null, false, 11, null, "Grand Labyrinth - Part II", null, false, 12, null, "The Intruder - Part II", null, false, 13, null, "If There Were Any Other Way", null, false, 14, null ]
+items = [ "Eternal Wayfarer", null, false, 0, null, "The Ordeal", null, false, 3, null, "The Ordeal - Part II", null, false, 4, null, "The Ordeal - Part III", null, false, 5, null, "Under a Black Curse", null, false, 6, null, "Under a Black Curse - Part II", null, false, 7, null, "Grand Labyrinth", null, false, 8, null, "The Intruder", null, false, 9, null, "Under a Black Curse - Part III", null, false, 11, null, "Grand Labyrinth - Part II", null, false, 12, null, "The Intruder - Part II", null, false, 13, null, "If There Were Any Other Way", null, false, 14, null, "None", null, false, 16, null ]
 selected = 0
 
 [node name="_sepr2" type="HSeparator" parent="."]
@@ -165,33 +195,76 @@ margin_right = 249.0
 margin_bottom = 261.0
 custom_constants/separation = 10
 
-[node name="StageIN" type="Label" parent="."]
+[node name="DefendCH" type="CheckBox" parent="."]
 margin_left = 28.0
 margin_top = 264.0
 margin_right = 249.0
-margin_bottom = 289.0
+margin_bottom = 288.0
+text = "Defend Yourself Battle?"
+align = 1
+icon_align = 1
+
+[node name="SpecialCH" type="CheckBox" parent="."]
+margin_left = 28.0
+margin_top = 291.0
+margin_right = 249.0
+margin_bottom = 315.0
+text = "Special Battle?"
+align = 1
+icon_align = 1
+
+[node name="DestinedCH" type="CheckBox" parent="."]
+margin_left = 28.0
+margin_top = 318.0
+margin_right = 249.0
+margin_bottom = 342.0
+text = "Destined Battle?"
+align = 1
+icon_align = 1
+
+[node name="ContinueCH" type="CheckBox" parent="."]
+margin_left = 28.0
+margin_top = 345.0
+margin_right = 249.0
+margin_bottom = 369.0
+pressed = true
+text = "Continuable?"
+align = 1
+
+[node name="_sepr4" type="HSeparator" parent="."]
+margin_left = 28.0
+margin_top = 372.0
+margin_right = 249.0
+margin_bottom = 382.0
+custom_constants/separation = 10
+
+[node name="StageIN" type="Label" parent="."]
+margin_left = 28.0
+margin_top = 385.0
+margin_right = 249.0
+margin_bottom = 410.0
 text = "Stage Information"
 align = 1
 
 [node name="LocationIN" type="Label" parent="."]
 margin_left = 28.0
-margin_top = 292.0
+margin_top = 413.0
 margin_right = 249.0
-margin_bottom = 317.0
+margin_bottom = 438.0
 text = "Location Information"
 align = 1
 
 [node name="_sepr3" type="HSeparator" parent="."]
 margin_left = 28.0
-margin_top = 320.0
+margin_top = 441.0
 margin_right = 249.0
-margin_bottom = 330.0
+margin_bottom = 451.0
 custom_constants/separation = 10
 
 [node name="OpponentIN" type="Label" parent="."]
 margin_left = 28.0
-margin_top = 333.0
+margin_top = 454.0
 margin_right = 249.0
-margin_bottom = 358.0
+margin_bottom = 479.0
 text = "Opponent Information"
 align = 1
