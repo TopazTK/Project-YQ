@@ -14,6 +14,6 @@ The project uses the Godot Engine for it's UI/UX, and it is made entirely using 
 
 ## The Meaning
 
-This project is dedicated to it's namesake, **Armağan Yalçın**, without whom I would never be even able to start this project, let alone come this far into it.  
+This project is dedicated to it's namesake, **Armağan Yalçın**, without whom I would never even beable to start this project, let alone come this far into it.  
   
 _Armağan, I love you. Thank you._
